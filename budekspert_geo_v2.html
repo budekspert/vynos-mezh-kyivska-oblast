@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<!-- ─── SEO ─── -->
+<title>Винос меж земельної ділянки в натуру — Київська область | БудЕксперт</title>
+<meta name="description" content="Винесення меж земельної ділянки в натуру по Київській області. Васильків, Бориспіль, Фастів, Обухів, Біла Церква. Виїзд наступного дня. Офіційний акт. ☎ 096 121 09 06">
+<meta name="keywords" content="винос меж, винесення меж земельної ділянки в натуру, межування, встановлення меж земельної ділянки, відновлення межових знаків, поділ земельної ділянки, присвоєння кадастрового номера, зміна цільового призначення, геодезія, Київська область, Васильків, Бориспіль, Фастів">
+<meta name="robots" content="index, follow">
+<meta name="author" content="БудЕксперт">
+<link rel="canonical" href="https://budekspert.github.io/vynos-mezh-kyivska-oblast/">
+
+<!-- ─── Open Graph (Facebook) ─── -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Винос меж земельної ділянки в натуру — Київська область">
+<meta property="og:description" content="Встановлюємо межові знаки точно за координатами кадастру. Офіційний акт. Виїзд наступного дня. ☎ 096 121 09 06">
+<meta property="og:url" content="https://budekspert.github.io/vynos-mezh-kyivska-oblast/">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="БудЕксперт">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;0,900;1,700;1,800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:    #07090F;
+  --bg2:   #0B0F1A;
+  --gold:  #D4A843;
+  --gold2: #F0C96A;
+  --gold3: #8A6820;
+  --blue:  #2D9CDB;
+  --green: #2ECC71;
+  --text:  #EDE8DF;
+  --muted: rgba(237,232,223,0.45);
+  --border:rgba(212,168,67,0.15);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+
+body {
+  background-color: #07090F !important;
+  background: #07090F !important;
+  color: #EDE8DF;
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── CANVAS ── */
+#cvs {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #07090F;
+  display: block;
+}
+
+/* ── GRAIN ── */
+.grain {
+  position: fixed; inset:0; z-index:1;
+  pointer-events:none; opacity:0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+}
+
+/* ── ALL CONTENT ABOVE CANVAS ── */
+.page { position: relative; z-index: 2; }
+
+/* ══════════════ HEADER ══════════════ */
+header {
+  position: fixed; top:0; left:0; right:0; z-index:999;
+  padding: 16px 24px;
+  display: flex; align-items:center; justify-content:space-between;
+  background: rgba(7,9,15,0.92);
+  border-bottom: 1px solid rgba(212,168,67,0.1);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.logo-box {
+  width:36px; height:36px;
+  border:1.5px solid var(--gold);
+  border-radius:9px;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(212,168,67,0.08);
+  flex-shrink:0;
+}
+.logo-name { font-size:15px; font-weight:800; color:#EDE8DF; line-height:1.1; }
+.logo-sub  { font-size:9px; color:var(--muted); font-family:'JetBrains Mono',monospace; letter-spacing:1px; }
+
+.hdr-right { display:flex; align-items:center; gap:10px; }
+.hdr-tel {
+  font-size:13px; font-weight:700; color:var(--gold);
+  text-decoration:none; display:none;
+}
+@media(min-width:600px){ .hdr-tel { display:block; } }
+
+.hdr-btn {
+  background: transparent;
+  border:1.5px solid var(--gold);
+  color:var(--gold);
+  font-family:'Syne',sans-serif;
+  font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+  padding:8px 16px; border-radius:6px;
+  text-decoration:none;
+  transition:background .2s, color .2s;
+  white-space:nowrap;
+}
+.hdr-btn:hover { background:var(--gold); color:#07090F; }
+
+/* ══════════════ HERO ══════════════ */
+.hero {
+  min-height: 100svh;
+  padding: 100px 24px 60px;
+  display: flex; flex-direction:column; justify-content:center;
+  position:relative; overflow:hidden;
+}
+
+/* Corner brackets */
+.crn {
+  position:absolute; width:20px; height:20px; pointer-events:none;
+}
+.crn::before,.crn::after { content:''; position:absolute; background:var(--gold); opacity:0.5; }
+.crn::before { width:100%; height:1.5px; top:0; left:0; }
+.crn::after  { width:1.5px; height:100%; top:0; left:0; }
+.crn.tl { top:80px; left:20px; }
+.crn.tr { top:80px; right:20px; transform:scaleX(-1); }
+.crn.bl { bottom:40px; left:20px; transform:scaleY(-1); }
+.crn.br { bottom:40px; right:20px; transform:scale(-1); }
+
+/* Scan line */
+.scan {
+  position:absolute; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,168,67,0.5),transparent);
+  animation:scanAnim 7s linear infinite;
+  pointer-events:none;
+}
+@keyframes scanAnim {
+  0%   { top:0%;   opacity:0; }
+  5%   { opacity:1; }
+  95%  { opacity:0.6; }
+  100% { top:100%; opacity:0; }
+}
+
+/* Floating coords */
+.fcoord {
+  position:absolute;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; color:rgba(212,168,67,0.4);
+  animation:floatY 4s ease-in-out infinite;
+  pointer-events:none; user-select:none;
+}
+.fcoord:nth-child(1){ top:20%; right:5%;  animation-delay:0s; }
+.fcoord:nth-child(2){ top:65%; right:3%;  animation-delay:1.5s; }
+.fcoord:nth-child(3){ top:40%; left:2%;   animation-delay:2.8s; font-size:8px; }
+@keyframes floatY {
+  0%,100%{ transform:translateY(0); opacity:0.3; }
+  50%    { transform:translateY(-8px); opacity:0.6; }
+}
+
+.hero-inner { max-width:600px; }
+
+.hero-label {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:20px;
+  animation:fadeUp .5s .1s both;
+}
+.hero-label::before { content:''; width:24px; height:1.5px; background:var(--gold); flex-shrink:0; }
+
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size: clamp(48px, 11vw, 88px);
+  font-weight:900; line-height:1.0;
+  color:#EDE8DF;
+  margin-bottom:20px;
+  animation:fadeUp .6s .25s both;
+}
+.hero h1 em {
+  font-style:italic;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-desc {
+  font-size:14px; line-height:1.8; color:var(--muted);
+  max-width:420px; margin-bottom:36px;
+  animation:fadeUp .6s .4s both;
+}
+
+.hero-btns {
+  display:flex; flex-direction:column; gap:12px;
+  animation:fadeUp .6s .55s both;
+}
+@media(min-width:480px){ .hero-btns{ flex-direction:row; flex-wrap:wrap; } }
+
+.btn-gold {
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#07090F;
+  font-family:'Syne',sans-serif;
+  font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+  padding:15px 28px; border-radius:8px;
+  text-decoration:none; border:none; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  box-shadow:0 0 40px rgba(212,168,67,0.2);
+  transition:transform .2s, box-shadow .2s;
+}
+.btn-gold:hover { transform:translateY(-2px); box-shadow:0 8px 40px rgba(212,168,67,0.4); }
+
+.btn-ghost {
+  background:transparent;
+  border:1.5px solid rgba(237,232,223,0.2);
+  color:#EDE8DF;
+  font-family:'Syne',sans-serif;
+  font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:14px 28px; border-radius:8px;
+  text-decoration:none; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  transition:border-color .2s, color .2s;
+}
+.btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
+
+/* Stats */
+.hero-stats {
+  display:flex; gap:32px; flex-wrap:wrap;
+  margin-top:52px; padding-top:36px;
+  border-top:1px solid rgba(255,255,255,0.07);
+  animation:fadeUp .6s .7s both;
+}
+.stat-num {
+  font-family:'Playfair Display',serif;
+  font-size:36px; font-weight:700; color:var(--gold); line-height:1; margin-bottom:4px;
+}
+.stat-lbl { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:600; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ══════════════ SECTIONS ══════════════ */
+section {
+  padding:80px 24px;
+  background:#07090F;
+}
+
+.sec-label {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:14px;
+  display:flex; align-items:center; gap:10px;
+}
+.sec-label::before { content:''; width:18px; height:1px; background:var(--gold); }
+
+.sec-h {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,7vw,52px); font-weight:900; line-height:1.1;
+  color:#EDE8DF; margin-bottom:12px;
+}
+.sec-h em { font-style:italic; color:var(--gold); }
+.sec-p { font-size:14px; color:var(--muted); line-height:1.8; max-width:480px; margin-bottom:48px; }
+
+/* ══════════════ TIMELINE ══════════════ */
+.tl-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2px;
+}
+@media(min-width:680px){ .tl-grid{ grid-template-columns:1fr 1fr; } }
+
+.tl-card {
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  padding:32px 28px;
+  position:relative; overflow:hidden;
+  transition:background .3s, border-color .3s;
+  opacity:0; transform:translateY(20px);
+  transition:opacity .5s ease, transform .5s ease, background .3s, border-color .3s;
+}
+.tl-card.visible { opacity:1; transform:translateY(0); }
+.tl-card:hover { background:rgba(212,168,67,0.04); border-color:rgba(212,168,67,0.3); }
+
+.tl-n {
+  font-family:'Playfair Display',serif;
+  font-size:64px; font-weight:900; color:rgba(212,168,67,0.07);
+  position:absolute; top:8px; right:16px; line-height:1;
+  transition:color .3s;
+}
+.tl-card:hover .tl-n { color:rgba(212,168,67,0.13); }
+
+.tl-ico {
+  width:42px; height:42px; border-radius:11px;
+  background:rgba(212,168,67,0.1);
+  border:1px solid rgba(212,168,67,0.2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; margin-bottom:18px;
+}
+.tl-title { font-size:17px; font-weight:700; margin-bottom:10px; color:#EDE8DF; }
+.tl-desc  { font-size:12px; color:var(--muted); line-height:1.7; }
+
+/* ══════════════ BENTO ══════════════ */
+.bento {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+@media(min-width:600px){
+  .bento {
+    grid-template-columns:1.5fr 1fr;
+    grid-template-rows:auto auto auto;
+  }
+  .bento .big { grid-row:span 2; }
+}
+
+.bcard {
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:14px; padding:28px;
+  position:relative; overflow:hidden;
+  opacity:0; transform:translateY(20px);
+  transition:opacity .5s ease, transform .5s ease, border-color .3s, background .3s;
+}
+.bcard.visible { opacity:1; transform:translateY(0); }
+.bcard:hover { border-color:rgba(212,168,67,0.35); background:rgba(212,168,67,0.03); }
+
+.bcard::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0); transition:transform .4s;
+}
+.bcard:hover::after { transform:scaleX(1); }
+
+.bcard-ico { font-size:28px; margin-bottom:16px; display:block; }
+.bcard-title { font-size:17px; font-weight:700; color:#EDE8DF; margin-bottom:8px; line-height:1.2; }
+.bcard-text  { font-size:12px; color:var(--muted); line-height:1.7; }
+
+.code-block {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  background:rgba(0,0,0,0.5);
+  border:1px solid rgba(212,168,67,0.15);
+  border-radius:8px; padding:12px 14px;
+  margin-top:16px; line-height:2;
+}
+.ck { color:var(--muted); }
+.cv { color:var(--gold2); }
+
+.dot-live {
+  display:inline-block; width:7px; height:7px; border-radius:50%;
+  background:var(--green); margin-right:6px;
+  box-shadow:0 0 8px var(--green);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100%{ box-shadow:0 0 5px var(--green); }
+  50%    { box-shadow:0 0 14px var(--green); }
+}
+
+/* ══════════════ FORM ══════════════ */
+.form-section {
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.form-wrap {
+  max-width:520px; margin:0 auto;
+}
+
+.trust-list { display:flex; flex-direction:column; gap:10px; margin-bottom:40px; }
+.trust-item {
+  display:flex; align-items:center; gap:12px;
+  padding:14px 18px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border); border-radius:10px;
+}
+.t-check {
+  width:24px; height:24px; flex-shrink:0; border-radius:50%;
+  background:rgba(46,204,113,0.1); border:1px solid rgba(46,204,113,0.3);
+  display:flex; align-items:center; justify-content:center; font-size:12px;
+}
+.t-text { font-size:13px; font-weight:600; color:#EDE8DF; }
+
+.fcard {
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:18px; padding:32px 28px;
+  position:relative; overflow:hidden;
+}
+.fcard::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--gold3),var(--gold),var(--gold2),var(--gold),var(--gold3));
+}
+
+.form-h { font-family:'Playfair Display',serif; font-size:24px; font-weight:800; color:#EDE8DF; margin-bottom:4px; }
+.form-sub { font-size:10px; color:var(--muted); margin-bottom:24px; font-family:'JetBrains Mono',monospace; letter-spacing:.5px; }
+
+.field { margin-bottom:14px; }
+.field label {
+  display:block; font-size:9px; font-weight:700;
+  letter-spacing:1.5px; text-transform:uppercase;
+  color:rgba(212,168,67,0.7); margin-bottom:5px;
+  font-family:'JetBrains Mono',monospace;
+}
+.field input,
+.field select,
+.field textarea {
+  width:100%;
+  background:rgba(0,0,0,0.4);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:8px; padding:12px 14px;
+  font-family:'Syne',sans-serif;
+  font-size:14px; font-weight:500;
+  color:#EDE8DF; outline:none;
+  -webkit-appearance:none; appearance:none;
+  resize:none;
+  transition:border-color .2s, background .2s, box-shadow .2s;
+}
+.field input::placeholder,
+.field textarea::placeholder { color:rgba(237,232,223,0.2); }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color:rgba(212,168,67,0.5);
+  background:rgba(212,168,67,0.04);
+  box-shadow:0 0 0 3px rgba(212,168,67,0.07);
+}
+.field select option { background:#0B0F1A; color:#EDE8DF; }
+
+.row2 { display:flex; gap:10px; }
+.row2 .field { flex:1; }
+
+.btn-submit {
+  width:100%; margin-top:6px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#07090F;
+  font-family:'Syne',sans-serif;
+  font-size:13px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+  padding:16px; border:none; border-radius:10px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  box-shadow:0 0 40px rgba(212,168,67,0.2);
+  transition:transform .2s, box-shadow .2s;
+  -webkit-appearance:none;
+}
+.btn-submit:hover { transform:translateY(-2px); box-shadow:0 8px 40px rgba(212,168,67,0.35); }
+
+.or-divider {
+  display:flex; align-items:center; gap:10px;
+  margin:14px 0; font-size:10px; color:var(--muted);
+  font-family:'JetBrains Mono',monospace;
+}
+.or-divider::before,.or-divider::after { content:''; flex:1; height:1px; background:rgba(255,255,255,0.07); }
+
+.btn-tg {
+  width:100%;
+  background:rgba(45,156,219,0.1);
+  border:1.5px solid rgba(45,156,219,0.3);
+  color:#EDE8DF;
+  font-family:'Syne',sans-serif;
+  font-size:13px; font-weight:700;
+  padding:14px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  text-decoration:none; cursor:pointer;
+  transition:background .2s, border-color .2s;
+}
+.btn-tg:hover { background:rgba(45,156,219,0.2); border-color:rgba(45,156,219,0.6); }
+
+.checkboxes { display:flex; flex-direction:column; gap:8px; }
+.chk {
+  display:flex; align-items:center; gap:10px;
+  padding:11px 14px;
+  background:rgba(0,0,0,0.3);
+  border:1.5px solid rgba(255,255,255,0.08);
+  border-radius:8px; cursor:pointer;
+  transition:border-color .2s, background .2s;
+  user-select:none;
+}
+.chk:hover { border-color:rgba(212,168,67,0.35); background:rgba(212,168,67,0.04); }
+.chk input[type=checkbox] { display:none; }
+.chk-box {
+  width:18px; height:18px; flex-shrink:0;
+  border:1.5px solid rgba(255,255,255,0.2);
+  border-radius:5px; background:transparent;
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:800; color:#07090F;
+  transition:all .2s;
+}
+.chk.active { border-color:rgba(212,168,67,0.5); background:rgba(212,168,67,0.07); }
+.chk.active .chk-box { background:var(--gold); border-color:var(--gold); }
+.chk.active .chk-box::after { content:'✓'; }
+.chk-label { font-size:13px; font-weight:500; color:var(--muted); transition:color .2s; }
+.chk.active .chk-label { color:#EDE8DF; }
+
+
+  text-align:center; margin-top:12px;
+  font-size:9px; color:rgba(237,232,223,0.2);
+  font-family:'JetBrains Mono',monospace; line-height:1.6;
+}
+
+/* ── CADASTRAL FIELD ── */
+.cadastral-wrap { position:relative; }
+
+.cadastral-wrap input {
+  font-family:'JetBrains Mono',monospace !important;
+  font-size:15px !important;
+  font-weight:500 !important;
+  letter-spacing:1px;
+}
+
+.cad-status {
+  position:absolute; right:12px; top:50%; transform:translateY(-50%);
+  font-size:16px; pointer-events:none;
+  transition:opacity .2s;
+  opacity:0;
+}
+
+.cad-hint {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; margin-top:5px; padding:0 2px;
+  display:flex; align-items:center; gap:6px;
+  transition:color .2s;
+}
+.cad-hint .segments { display:flex; gap:4px; }
+.cad-hint .seg {
+  padding:2px 6px; border-radius:4px;
+  background:rgba(255,255,255,0.05);
+  color:var(--muted); font-size:9px;
+  transition:background .2s, color .2s;
+}
+.cad-hint .seg.done { background:rgba(46,204,113,0.15); color:#2ECC71; }
+.cad-hint .seg.active { background:rgba(212,168,67,0.2); color:var(--gold2); }
+
+/* valid border */
+.field input.cad-valid {
+  border-color:rgba(46,204,113,0.5) !important;
+  box-shadow:0 0 0 3px rgba(46,204,113,0.07) !important;
+}
+.field input.cad-invalid {
+  border-color:rgba(231,76,60,0.5) !important;
+  box-shadow:0 0 0 3px rgba(231,76,60,0.07) !important;
+}
+
+.success-block { display:none; text-align:center; padding:16px 0; }
+.success-ico { font-size:52px; margin-bottom:14px; }
+.success-h { font-family:'Playfair Display',serif; font-size:26px; font-weight:800; color:#EDE8DF; margin-bottom:10px; }
+.success-p { font-size:13px; color:var(--muted); line-height:1.8; margin-bottom:22px; }
+
+/* ══════════════ FOOTER ══════════════ */
+footer {
+  background:#07090F;
+  padding:32px 24px;
+  display:flex; flex-direction:column; gap:16px; align-items:center; text-align:center;
+  border-top:1px solid var(--border);
+}
+@media(min-width:600px){
+  footer { flex-direction:row; justify-content:space-between; text-align:left; }
+}
+.foot-logo { font-size:15px; font-weight:800; color:#EDE8DF; }
+.foot-logo span { color:var(--gold); }
+.foot-links { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+.foot-links a { font-size:11px; color:var(--muted); text-decoration:none; font-family:'JetBrains Mono',monospace; transition:color .2s; }
+.foot-links a:hover { color:var(--gold); }
+.foot-copy { font-size:10px; color:rgba(237,232,223,0.2); font-family:'JetBrains Mono',monospace; }
+</style>
+</head>
+<body>
+
+<!-- CANVAS (dark background + animation) -->
+<canvas id="cvs"></canvas>
+<div class="grain"></div>
+
+<div class="page">
+
+<!-- ─── HEADER ─── -->
+<header>
+  <a class="logo" href="#">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="3" fill="#D4A843"/>
+        <circle cx="10" cy="10" r="7" stroke="#D4A843" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <line x1="10" y1="1" x2="10" y2="4" stroke="#D4A843" stroke-width="2"/>
+        <line x1="10" y1="16" x2="10" y2="19" stroke="#D4A843" stroke-width="2"/>
+        <line x1="1" y1="10" x2="4" y2="10" stroke="#D4A843" stroke-width="2"/>
+        <line x1="16" y1="10" x2="19" y2="10" stroke="#D4A843" stroke-width="2"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-name">БудЕксперт</div>
+      <div class="logo-sub">@budekspert_bot</div>
+    </div>
+  </a>
+  <div class="hdr-right">
+    <a href="tel:+380961210906" class="hdr-tel">096 121 09 06</a>
+    <a href="#form" class="hdr-btn">Заявка</a>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="scan"></div>
+  <div class="crn tl"></div><div class="crn tr"></div>
+  <div class="crn bl"></div><div class="crn br"></div>
+  <div class="fcoord">50°18′24.1″N · 30°26′18.5″E</div>
+  <div class="fcoord">КН: 3222487400:04:001</div>
+  <div class="fcoord">GPS RTK ±0.01м</div>
+
+  <div class="hero-inner">
+    <div class="hero-label">Геодезія · Кадастр · Київська обл.</div>
+    <h1>Винос меж<br><em>земельної ділянки</em><br>в натуру</h1>
+    <p class="hero-desc">Винесення меж земельної ділянки в натуру по всій Київській області. Встановлюємо межові знаки точно за координатами кадастру. Офіційний акт. Ліцензований геодезист.</p>
+    <div class="hero-btns">
+      <a href="#form" class="btn-gold">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Замовити виїзд
+      </a>
+      <a href="tel:+380961210906" class="btn-ghost">📞 096 121 09 06</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">500+</div><div class="stat-lbl">Робіт</div></div>
+      <div><div class="stat-num">±1см</div><div class="stat-lbl">Точність</div></div>
+      <div><div class="stat-num">1 день</div><div class="stat-lbl">Виїзд</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section id="how">
+  <div class="sec-label">Процес роботи</div>
+  <h2 class="sec-h">Як це <em>відбувається</em></h2>
+  <p class="sec-p">Чотири кроки від вашого дзвінка до встановлених меж</p>
+  <div class="tl-grid">
+    <div class="tl-card">
+      <div class="tl-n">01</div>
+      <div class="tl-ico">📞</div>
+      <div class="tl-title">Заявка та консультація</div>
+      <div class="tl-desc">Залишаєте заявку онлайн або телефонуєте. Уточнюємо деталі та погоджуємо дату виїзду — зазвичай наступного дня.</div>
+    </div>
+    <div class="tl-card">
+      <div class="tl-n">02</div>
+      <div class="tl-ico">🗺️</div>
+      <div class="tl-title">Підготовка та аналіз</div>
+      <div class="tl-desc">Завантажуємо кадастровий план ділянки, отримуємо координати меж з Держгеокадастру та готуємо обладнання.</div>
+    </div>
+    <div class="tl-card">
+      <div class="tl-n">03</div>
+      <div class="tl-ico">📡</div>
+      <div class="tl-title">Виїзд і вимірювання</div>
+      <div class="tl-desc">Геодезист виїжджає з RTK GPS-обладнанням. Визначаємо та закріплюємо кутові точки межовими знаками.</div>
+    </div>
+    <div class="tl-card">
+      <div class="tl-n">04</div>
+      <div class="tl-ico">📄</div>
+      <div class="tl-title">Офіційний акт</div>
+      <div class="tl-desc">Складаємо та підписуємо акт виносу меж у натуру. Документ має юридичну силу. Підписаний ліцензованим геодезистом.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section id="features" style="padding-top:0;">
+  <div class="sec-label">Наші переваги</div>
+  <h2 class="sec-h">Чому <em>обирають</em> нас</h2>
+  <p class="sec-p">Точність, швидкість та офіційні документи</p>
+  <div class="bento">
+    <div class="bcard big">
+      <span class="bcard-ico">🎯</span>
+      <div class="bcard-title">Точність до 1 сантиметра</div>
+      <div class="bcard-text">Геодезичне GPS/GNSS обладнання з RTK-корекцією. Похибка — не більше 1 см. Це в 10 разів точніше за стандартні вимоги.</div>
+      <div class="code-block">
+        <div><span class="ck">LAT  </span><span class="cv">50.30669°N</span></div>
+        <div><span class="ck">LNG  </span><span class="cv">30.43847°E</span></div>
+        <div><span class="ck">ACC  </span><span class="cv">±0.011м ✓</span></div>
+        <div><span class="ck">MODE </span><span class="cv">RTK FIXED</span></div>
+      </div>
+    </div>
+    <div class="bcard">
+      <span class="bcard-ico">⚡</span>
+      <div class="bcard-title">Виїзд за 1 день</div>
+      <div class="bcard-text">Залишили заявку сьогодні — геодезист виїжджає завтра.</div>
+    </div>
+    <div class="bcard">
+      <span class="bcard-ico">📋</span>
+      <div class="bcard-title">Офіційний акт</div>
+      <div class="bcard-text">Повна юридична сила. Підписаний ліцензованим спеціалістом.</div>
+    </div>
+    <div class="bcard">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:14px;">
+        <span class="dot-live"></span>
+        <span style="font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:1px;">ONLINE 24/7</span>
+      </div>
+      <div class="bcard-title">Telegram-бот</div>
+      <div class="bcard-text">Питайте у @budekspert_bot — відповідь швидко та по суті.</div>
+    </div>
+    <div class="bcard">
+      <span class="bcard-ico">🗺️</span>
+      <div class="bcard-title">Вся Київська обл.</div>
+      <div class="bcard-text">Васильків, Бориспіль, Фастів, Біла Церква, Обухів та інші.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FORM ─── -->
+<section id="form" class="form-section">
+  <div class="form-wrap">
+    <div class="sec-label">Заявка онлайн</div>
+    <h2 class="sec-h">Замовте <em>виїзд</em></h2>
+
+    <div class="trust-list">
+      <div class="trust-item"><div class="t-check">✓</div><div class="t-text">Безкоштовна консультація до виїзду</div></div>
+      <div class="trust-item"><div class="t-check">✓</div><div class="t-text">Ціна фіксується до початку робіт</div></div>
+      <div class="trust-item"><div class="t-check">✓</div><div class="t-text">Відповідь протягом 1 години</div></div>
+    </div>
+
+    <div class="fcard">
+      <div class="form-h">Залишити заявку</div>
+      <div class="form-sub">// Заповніть поля нижче</div>
+
+      <div id="formBlock">
+        <!-- ПОСЛУГА — чекбокси -->
+        <div class="field">
+          <label>Що вас цікавить?</label>
+          <div class="checkboxes">
+            <label class="chk" onclick="toggleChk(this)"><input type="checkbox" value="Винос меж в натуру"><div class="chk-box"></div><span class="chk-label">📐 Винос меж в натуру</span></label>
+            <label class="chk" onclick="toggleChk(this)"><input type="checkbox" value="Поділ ділянки"><div class="chk-box"></div><span class="chk-label">✂️ Поділ ділянки</span></label>
+            <label class="chk" onclick="toggleChk(this)"><input type="checkbox" value="Присвоєння кадастрового номера"><div class="chk-box"></div><span class="chk-label">🗂 Присвоєння кадастрового номера</span></label>
+            <label class="chk" onclick="toggleChk(this)"><input type="checkbox" value="Зміна цільового призначення"><div class="chk-box"></div><span class="chk-label">🔄 Зміна цільового призначення</span></label>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label>Ім'я</label>
+            <input type="text" id="fname" placeholder="Іван">
+          </div>
+          <div class="field">
+            <label>Телефон</label>
+            <input type="tel" id="fphone" placeholder="+38 096...">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Населений пункт</label>
+          <input type="text" id="fcity" placeholder="Васильків, Київська обл.">
+        </div>
+
+        <!-- ЄДИНЕ кадастрове поле з автоформатуванням -->
+        <div class="field">
+          <label>Кадастровий номер <span style="color:var(--muted);font-weight:400;">(необов'язково)</span></label>
+          <div style="position:relative;">
+            <input
+              type="text" id="fcadnum"
+              placeholder="3222487400:04:001:0022"
+              maxlength="23" inputmode="numeric" autocomplete="off"
+              oninput="formatCadNum(this)"
+              style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.5px; padding-right:38px;"
+            >
+            <span id="cadStatus" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:15px;pointer-events:none;display:none;"></span>
+          </div>
+          <div id="cadHint" style="font-family:'JetBrains Mono',monospace;font-size:9px;margin-top:5px;color:var(--muted);letter-spacing:.5px;">
+            Формат: 3222487400 : 04 : 001 : 0022
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Коментар</label>
+          <textarea id="fcomment" rows="2" placeholder="Будь-яка інформація..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="doSubmit()">Надіслати заявку →</button>
+        <div class="or-divider">або</div>
+        <a href="https://t.me/budekspert_bot" target="_blank" class="btn-tg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#2D9CDB"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.61c-.15.674-.543.838-1.097.522l-3.02-2.226-1.46 1.4c-.16.16-.296.296-.608.296l.216-3.073 5.594-5.054c.243-.216-.053-.336-.377-.12l-6.916 4.354-2.98-.93c-.648-.203-.66-.648.135-.96l11.636-4.487c.54-.195 1.012.12.917.668z"/></svg>
+          Написати в @budekspert_bot
+        </a>
+        <p class="privacy">Ваші дані захищені. Ми не передаємо їх третім особам.</p>
+      </div>
+
+      <div class="success-block" id="successBlock">
+        <div class="success-ico">✅</div>
+        <div class="success-h">Заявку прийнято!</div>
+        <p class="success-p">Ми отримали вашу заявку і зв'яжемося з вами найближчим часом. Або напишіть одразу у Telegram.</p>
+        <a href="https://t.me/budekspert_bot" target="_blank" class="btn-tg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#2D9CDB"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.61c-.15.674-.543.838-1.097.522l-3.02-2.226-1.46 1.4c-.16.16-.296.296-.608.296l.216-3.073 5.594-5.054c.243-.216-.053-.336-.377-.12l-6.916 4.354-2.98-.93c-.648-.203-.66-.648.135-.96l11.636-4.487c.54-.195 1.012.12.917.668z"/></svg>
+          Відкрити @budekspert_bot
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="foot-logo">Буд<span>Експерт</span></div>
+  <div class="foot-links">
+    <a href="https://t.me/budekspert_bot" target="_blank">@budekspert_bot</a>
+    <a href="tel:+380961210906">096 121 09 06</a>
+    <a href="https://t.me/vitaliy_bud" target="_blank">@vitaliy_bud</a>
+  </div>
+  <div class="foot-copy">© 2025 БудЕксперт</div>
+</footer>
+
+</div><!-- /page -->
+
+<script>
+/* ── CANVAS: dark bg + gold particles ── */
+(function(){
+  const c   = document.getElementById('cvs');
+  const ctx = c.getContext('2d');
+  let W, H, pts = [];
+
+  function resize(){
+    W = c.width  = window.innerWidth;
+    H = c.height = window.innerHeight;
+  }
+
+  function init(){
+    pts = [];
+    const n = Math.max(30, Math.floor(W * H / 18000));
+    for(let i=0;i<n;i++){
+      pts.push({
+        x: Math.random()*W, y: Math.random()*H,
+        vx:(Math.random()-.5)*.25, vy:(Math.random()-.5)*.25,
+        r: Math.random()*1.2+.4,
+        a: Math.random()*.5+.2
+      });
+    }
+  }
+
+  function frame(){
+    /* solid dark background — CRITICAL */
+    ctx.fillStyle = '#07090F';
+    ctx.fillRect(0,0,W,H);
+
+    /* grid */
+    ctx.strokeStyle='rgba(212,168,67,0.04)';
+    ctx.lineWidth=1;
+    for(let x=0;x<W;x+=60){ ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke(); }
+    for(let y=0;y<H;y+=60){ ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke(); }
+
+    /* connections */
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){
+          ctx.strokeStyle=`rgba(212,168,67,${(1-d/120)*.12})`;
+          ctx.lineWidth=.7;
+          ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();
+        }
+      }
+    }
+
+    /* dots */
+    pts.forEach(p=>{
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(212,168,67,${p.a})`; ctx.fill();
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W) p.vx*=-1;
+      if(p.y<0||p.y>H) p.vy*=-1;
+    });
+
+    requestAnimationFrame(frame);
+  }
+
+  resize(); init(); frame();
+  window.addEventListener('resize',()=>{resize();init();});
+})();
+
+/* ── CADASTRAL NUMBER AUTO-FORMAT (old block disabled) ── */
+(function(){
+  const inp    = document.getElementById('fcad');
+  if(!inp) return; // елемент видалено — виходимо
+  const status = document.getElementById('cadStatus');
+  const segs   = [
+    document.getElementById('seg1'),
+    document.getElementById('seg2'),
+    document.getElementById('seg3'),
+    document.getElementById('seg4')
+  ];
+  // segment lengths
+  const lens = [10, 2, 3, 4];
+  const total = 19; // 10+1+2+1+3+1+4
+
+  function onlyDigits(v){ return v.replace(/\D/g,''); }
+
+  function format(digits){
+    let result = '';
+    let pos = 0;
+    for(let i=0;i<lens.length;i++){
+      const chunk = digits.slice(pos, pos+lens[i]);
+      if(chunk) result += (i>0 && result ? ':' : '') + chunk;
+      pos += lens[i];
+      if(pos >= digits.length) break;
+    }
+    return result;
+  }
+
+  function updateHint(digits){
+    let pos = 0;
+    segs.forEach((seg, i) => {
+      const start = pos;
+      const end   = pos + lens[i];
+      const filled = digits.slice(start, end).length;
+      seg.classList.remove('done','active');
+      if(filled === lens[i]){
+        seg.classList.add('done');
+        seg.textContent = digits.slice(start, end);
+      } else if(filled > 0 || digits.length === start){
+        seg.classList.add(digits.length >= start && digits.length < end ? 'active':'');
+        seg.textContent = ['XXXXXXXXXX','XX','XXX','XXXX'][i];
+      } else {
+        seg.textContent = ['XXXXXXXXXX','XX','XXX','XXXX'][i];
+      }
+      pos = end;
+    });
+  }
+
+  inp.addEventListener('input', function(e){
+    const raw     = onlyDigits(this.value);
+    const limited = raw.slice(0, 19); // max raw digits = 10+2+3+4
+    const cursor  = this.selectionStart;
+    const formatted = format(limited);
+    this.value = formatted;
+
+    // restore caret
+    let caretPos = formatted.length;
+    this.setSelectionRange(caretPos, caretPos);
+
+    // update hint segments
+    updateHint(limited);
+
+    // validation
+    const totalDigits = limited.length;
+    const isComplete  = totalDigits === 19;
+    const isEmpty     = totalDigits === 0;
+
+    this.classList.remove('cad-valid','cad-invalid');
+    status.style.opacity = '0';
+
+    if(isComplete){
+      this.classList.add('cad-valid');
+      status.textContent = '✅';
+      status.style.opacity = '1';
+    } else if(!isEmpty && totalDigits > 3){
+      // partial — no red until they try submit
+    }
+  });
+
+  inp.addEventListener('keydown', function(e){
+    // allow backspace to also remove auto-colon
+    if(e.key === 'Backspace'){
+      const val = this.value;
+      const pos = this.selectionStart;
+      if(pos > 0 && val[pos-1] === ':'){
+        e.preventDefault();
+        const newVal = val.slice(0, pos-2) + val.slice(pos);
+        const digits = onlyDigits(newVal);
+        this.value   = format(digits);
+        const np     = pos - 2;
+        this.setSelectionRange(np, np);
+        updateHint(digits);
+      }
+    }
+  });
+
+  // expose for submit
+  window.getCadValue = () => inp.value;
+  window.highlightCadError = () => {
+    inp.classList.add('cad-invalid');
+    status.textContent = '❌';
+    status.style.opacity = '1';
+    inp.focus();
+  };
+})();
+
+/* ── SCROLL REVEAL ── */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:.08});
+document.querySelectorAll('.tl-card,.bcard,.trust-item').forEach(el=>obs.observe(el));
+
+/* ── CADASTRAL NUMBER AUTO-FORMAT ── */
+// Format: XXXXXXXXXX:XX:XXX:XXXX  (10:2:3:4)
+const CAD_PARTS = [10, 2, 3, 4];
+
+function formatCadNum(input) {
+  // Strip everything except digits
+  let digits = input.value.replace(/\D/g, '');
+
+  // Clamp to max 19 digits
+  if (digits.length > 19) digits = digits.slice(0, 19);
+
+  // Build formatted string with auto colons
+  let result = '';
+  let pos = 0;
+  for (let i = 0; i < CAD_PARTS.length; i++) {
+    const chunk = digits.slice(pos, pos + CAD_PARTS[i]);
+    if (!chunk) break;
+    result += (i > 0 ? ':' : '') + chunk;
+    pos += CAD_PARTS[i];
+  }
+
+  input.value = result;
+
+  // Validation feedback
+  const status  = document.getElementById('cadStatus');
+  const hint    = document.getElementById('cadHint');
+  const totalDigits = digits.length;
+
+  if (totalDigits === 0) {
+    input.style.borderColor = 'rgba(255,255,255,0.08)';
+    input.style.boxShadow   = 'none';
+    status.style.display    = 'none';
+    hint.style.color        = 'var(--muted)';
+    hint.textContent        = 'Формат: 3222487400 : 04 : 001 : 0022';
+  } else if (totalDigits === 19) {
+    // Complete!
+    input.style.borderColor = 'rgba(46,204,113,0.6)';
+    input.style.boxShadow   = '0 0 0 3px rgba(46,204,113,0.08)';
+    status.style.display    = 'block';
+    status.textContent      = '✅';
+    hint.style.color        = '#2ECC71';
+    hint.textContent        = '✓ Номер введено правильно';
+  } else if (totalDigits > 5) {
+    // In progress
+    input.style.borderColor = 'rgba(212,168,67,0.5)';
+    input.style.boxShadow   = '0 0 0 3px rgba(212,168,67,0.07)';
+    status.style.display    = 'block';
+    status.textContent      = '✏️';
+    hint.style.color        = 'rgba(212,168,67,0.6)';
+    const remaining = 19 - totalDigits;
+    hint.textContent = `Ще ${remaining} цифр...`;
+  } else {
+    input.style.borderColor = 'rgba(255,255,255,0.12)';
+    input.style.boxShadow   = 'none';
+    status.style.display    = 'none';
+    hint.style.color        = 'var(--muted)';
+    hint.textContent        = 'Формат: 3222487400 : 04 : 001 : 0022';
+  }
+}
+
+function toggleChk(el) {
+  el.classList.toggle('active');
+  el.querySelector('input').checked = el.classList.contains('active');
+}
+
+function doSubmit(){
+  const name  = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const cad   = document.getElementById('fcadnum').value.trim();
+
+  if(!name||!phone){ alert("Вкажіть ім'я та телефон"); return; }
+
+  if(cad && cad.replace(/\D/g,'').length !== 19){
+    const inp = document.getElementById('fcadnum');
+    inp.style.borderColor='rgba(231,76,60,0.7)';
+    inp.style.boxShadow='0 0 0 3px rgba(231,76,60,0.1)';
+    document.getElementById('cadHint').style.color='#e74c3c';
+    document.getElementById('cadHint').textContent='⚠ Неповний номер — має бути 19 цифр';
+    inp.focus(); return;
+  }
+
+  const cadParam = cad ? `_${cad.replace(/:/g,'')}` : '';
+  window.open(`https://t.me/budekspert_bot?start=geo_${encodeURIComponent(name)}${cadParam}`,'_blank');
+  document.getElementById('formBlock').style.display='none';
+  document.getElementById('successBlock').style.display='block';
+}
+</script>
+</body>
+</html>
