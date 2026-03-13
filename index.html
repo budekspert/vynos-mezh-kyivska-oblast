@@ -623,9 +623,9 @@ footer {
       <a href="tel:+380961210906" class="btn-ghost">📞 096 121 09 06</a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-num">500+</div><div class="stat-lbl">Робіт</div></div>
-      <div><div class="stat-num">±1см</div><div class="stat-lbl">Точність</div></div>
-      <div><div class="stat-num">1 день</div><div class="stat-lbl">Виїзд</div></div>
+      <div><div class="stat-num">5000+</div><div class="stat-lbl">Робіт</div></div>
+      <div><div class="stat-num">GPS RTK</div><div class="stat-lbl">Сертифіковане обладнання</div></div>
+      <div><div class="stat-num">Швидкий</div><div class="stat-lbl">Виїзд по Київській обл.</div></div>
     </div>
   </div>
 </div>
@@ -784,10 +784,13 @@ footer {
       <div class="success-block" id="successBlock">
         <div class="success-ico">✅</div>
         <div class="success-h">Заявку прийнято!</div>
-        <p class="success-p">Ми отримали вашу заявку і зв'яжемося з вами найближчим часом. Або напишіть одразу у Telegram.</p>
+        <p class="success-p">Дякуємо! Ми отримали вашу заявку і зв'яжемося з вами найближчим часом. Якщо хочете — можете також написати нам у Telegram.</p>
+        <a href="tel:+380961210906" class="btn-gold" style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:10px;">
+          📞 Зателефонувати зараз
+        </a>
         <a href="https://t.me/budekspert_bot" target="_blank" class="btn-tg">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#2D9CDB"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.61c-.15.674-.543.838-1.097.522l-3.02-2.226-1.46 1.4c-.16.16-.296.296-.608.296l.216-3.073 5.594-5.054c.243-.216-.053-.336-.377-.12l-6.916 4.354-2.98-.93c-.648-.203-.66-.648.135-.96l11.636-4.487c.54-.195 1.012.12.917.668z"/></svg>
-          Відкрити @budekspert_bot
+          Написати в @budekspert_bot
         </a>
       </div>
     </div>
@@ -1053,26 +1056,39 @@ function toggleChk(el) {
 }
 
 function doSubmit(){
-  const name  = document.getElementById('fname').value.trim();
-  const phone = document.getElementById('fphone').value.trim();
-  const cad   = document.getElementById('fcadnum').value.trim();
+  const name    = document.getElementById('fname').value.trim();
+  const phone   = document.getElementById('fphone').value.trim();
+  const city    = document.getElementById('fcity').value.trim();
+  const cad     = document.getElementById('fcadnum').value.trim();
+  const comment = document.getElementById('fcomment').value.trim();
 
-  if(!name||!phone){ alert("Вкажіть ім'я та телефон"); return; }
+  // Збираємо послуги
+  const services = [];
+  document.querySelectorAll('.chk.active input').forEach(function(i){ services.push(i.value); });
 
-  if(cad && cad.replace(/\D/g,'').length !== 19){
-    const inp = document.getElementById('fcadnum');
-    inp.style.borderColor='rgba(231,76,60,0.7)';
-    inp.style.boxShadow='0 0 0 3px rgba(231,76,60,0.1)';
-    document.getElementById('cadHint').style.color='#e74c3c';
-    document.getElementById('cadHint').textContent='⚠ Неповний номер — має бути 19 цифр';
-    inp.focus(); return;
+  // Перевірка обовязкових полів
+  if(!name || !phone){
+    alert('Вкажіть імя та телефон');
+    return;
   }
 
-  const cadParam = cad ? `_${cad.replace(/:/g,'')}` : '';
-  window.open(`https://t.me/budekspert_bot?start=geo_${encodeURIComponent(name)}${cadParam}`,'_blank');
-  document.getElementById('formBlock').style.display='none';
-  document.getElementById('successBlock').style.display='block';
+  // Перевірка кадастрового номера — якщо заповнений має бути 19 цифр
+  if(cad && cad.replace(/\D/g,'').length !== 19){
+    const inp = document.getElementById('fcadnum');
+    inp.style.borderColor = 'rgba(231,76,60,0.7)';
+    inp.style.boxShadow   = '0 0 0 3px rgba(231,76,60,0.1)';
+    document.getElementById('cadHint').style.color   = '#e74c3c';
+    document.getElementById('cadHint').textContent   = 'Неповний номер — має бути 19 цифр';
+    inp.focus();
+    return;
+  }
+
+  // Показуємо підтвердження на сайті — БЕЗ переходу в Telegram
+  document.getElementById('formBlock').style.display    = 'none';
+  document.getElementById('successBlock').style.display = 'block';
+  document.getElementById('successBlock').scrollIntoView({behavior:'smooth', block:'center'});
 }
+
 </script>
 </body>
 </html>
