@@ -9,6 +9,52 @@
       if (h1) h1.innerText = "Винос меж ділянки: " + city;
     }
   };
+<script>
+  // ─── Vynosmezh: безпечна підстановка міста з UTM ───
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 🔒 БІЛИЙ СПИСОК — тільки ці назви можуть з'явитись на сайті
+    const ALLOWED_CITIES = {
+      // Київська область
+      'kyiv':            'Києві',
+      'kyivska':         'Київській області',
+      'vasylkiv':        'Василькові',
+      'bila-cerkva':     'Білій Церкві',
+      'boryspil':        'Борисполі',
+      'fastiv':          'Фастові',
+      'obukhiv':         'Обухові',
+      'bucha':           'Бучі',
+      'brovary':         'Броварах',
+      
+    };
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const cityParam = urlParams.get('utm_city');
+    
+    // Тільки якщо UTM є І воно в білому списку
+    if (cityParam && ALLOWED_CITIES[cityParam.toLowerCase()]) {
+      const cityName = ALLOWED_CITIES[cityParam.toLowerCase()];
+      
+      // Міняємо H1
+      const h1 = document.querySelector('h1');
+      if (h1) {
+        h1.innerText = 'Винос меж ділянки в ' + cityName;
+      }
+      
+      // Міняємо Title (для шарінгу і SEO)
+      document.title = 'Винос меж в ' + cityName + ' | Vynosmezh';
+      
+      // Міняємо meta description
+      const desc = document.querySelector('meta[name="description"]');
+      if (desc) {
+        desc.setAttribute('content', 
+          'Винос меж земельної ділянки в ' + cityName + 
+          '. Сертифіковані ФОП-геодезисти. Замов онлайн.'
+        );
+      }
+    }
+    // Якщо UTM немає або місто не в списку — нічого не міняємо
+  });
 </script>
 
   <head>
