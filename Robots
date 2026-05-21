@@ -1,1 +1,12 @@
+# robots.txt — vynosmezh.com.ua
+# Геодезія та землевпорядкування у Київській області
 
+User-agent: *
+Allow: /
+
+# Закриваємо службові директорії
+Disallow: /assets/
+Disallow: /*.json$
+
+# Карта сайту — обов'язкова для Google
+Sitemap: https://vynosmezh.com.ua/sitemap.xml
