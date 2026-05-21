@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Винос меж земельної ділянки у Василькові та Васильківському районі</title>
+<meta name="description" content="Винос меж в натуру у Василькові, Васильківському районі. Крушинка, Гатне, Глеваха, Чабани, Боярка, Хотів. GPS RTK, офіційний акт. ☎ 096 121 09 06">
+<meta name="keywords" content="винос меж Васильків, винесення меж Васильківський район, геодезист Васильків, межування Глеваха, кадастр Васильківський район, землевпорядник Гатне, винос меж Чабани, геодезист Боярка, кадастр Крушинка">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ВиносМеж">
+<link rel="canonical" href="https://vynosmezh.com.ua/vasylkiv.html">
+<meta name="theme-color" content="#07090F">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Винос меж у Василькові та Васильківському районі">
+<meta property="og:description" content="Геодезичні роботи у Василькові та селах району. Сертифікований інженер з GPS RTK. ☎ 096 121 09 06">
+<meta property="og:url" content="https://vynosmezh.com.ua/vasylkiv.html">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="ВиносМеж">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ВиносМеж — Васильків",
+  "description": "Геодезичні роботи та землевпорядкування у Василькові та Васильківському районі Київської області.",
+  "telephone": "+380961210906",
+  "email": "budekspertinfo@gmail.com",
+  "url": "https://vynosmezh.com.ua/vasylkiv.html",
+  "areaServed": {
+    "@type": "City",
+    "name": "Васильків",
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Київська область"
+    }
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "09:00",
+    "closes": "21:00"
+  }
+}
+</script>
+
+<!-- FAQ Schema — дає розширені сніпети в Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чи виїжджаєте у віддалені села Васильківського району?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Так. Виїжджаємо у будь-який населений пункт — Крушинка, Гатне, Глеваха, Чабани, Боярка, Хотів, Калинівка, Вишнева та інші."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Скільки коштує винос меж у Василькові?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Вартість залежить від кількості кутових точок ділянки та відстані. Залиште заявку — після перевірки кадастру безкоштовно озвучимо точну ціну."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Які документи потрібні для виносу меж у Василькові?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Потрібен кадастровий номер ділянки або витяг з ДЗК. Якщо документів немає — підкажемо як їх отримати. Бажано мати свідоцтво про право власності."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://vynosmezh.com.ua/" },
+    { "@type": "ListItem", "position": 2, "name": "Київська область", "item": "https://vynosmezh.com.ua/" },
+    { "@type": "ListItem", "position": 3, "name": "Васильків", "item": "https://vynosmezh.com.ua/vasylkiv.html" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;0,900;1,700;1,800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<canvas id="cvs"></canvas>
+<div class="grain"></div>
+
+<div class="page">
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="/">
+    <div class="logo-box">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="3" fill="#D4A843"/>
+        <circle cx="10" cy="10" r="7" stroke="#D4A843" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <line x1="10" y1="1" x2="10" y2="4" stroke="#D4A843" stroke-width="2"/>
+        <line x1="10" y1="16" x2="10" y2="19" stroke="#D4A843" stroke-width="2"/>
+        <line x1="1" y1="10" x2="4" y2="10" stroke="#D4A843" stroke-width="2"/>
+        <line x1="16" y1="10" x2="19" y2="10" stroke="#D4A843" stroke-width="2"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-name">Винос<em>Меж</em></div>
+      <div class="logo-sub">Васильків</div>
+    </div>
+  </a>
+  <div class="hdr-right">
+    <a href="tel:+380961210906" class="hdr-tel-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+      096 121 09 06
+    </a>
+    <a href="#form" class="hdr-cta">Заявка</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="scan"></div>
+  <div class="crn tl"></div><div class="crn tr"></div>
+  <div class="crn bl"></div><div class="crn br"></div>
+  <div class="fcoord">50°11′16.0″N · 30°19′30.0″E</div>
+  <div class="fcoord">КН: 3222487400:00:000</div>
+  <div class="fcoord">GPS RTK ±0.01м</div>
+
+  <div class="hero-inner">
+    <div class="hero-label">Геодезія · Васильківський район</div>
+    <h1 data-utm>Винос меж<br><em>у Василькові</em><br>та районі</h1>
+    <p class="hero-desc">Виконуємо винос меж земельних ділянок у Василькові, Глеваху, Гатному, Чабанах, Боярці, Крушинці, Хотові та інших населених пунктах Васильківського району. GPS RTK обладнання, офіційний акт.</p>
+    <div class="hero-btns">
+      <a href="#form" class="btn-gold">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Замовити виїзд
+      </a>
+      <a href="tel:+380961210906" class="btn-ghost">📞 096 121 09 06</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">15+</div><div class="stat-lbl">Років досвіду</div></div>
+      <div><div class="stat-num">±1см</div><div class="stat-lbl">Точність GPS RTK</div></div>
+      <div><div class="stat-num">1-3 дні</div><div class="stat-lbl">Термін виїзду</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ПРО РАЙОН -->
+<section id="about-region">
+  <div class="sec-wrap" style="max-width:820px;">
+    <div class="sec-label">Васильківський район</div>
+    <h2 class="sec-h">Працюємо <em>по всьому</em> району</h2>
+    <p class="sec-p" style="max-width:none;">Васильківський район розташований у південній частині Київської області, межує з Фастівським та Обухівським районами. Це зона активного приватного будівництва — тут розвинені котеджні містечка Боярки, Глевахи, дачні масиви Гатного та Чабан. Більшість ділянок передані у власність ще у 1990-х і мають стерті межі або застарілі координати у кадастрі. Виїжджаємо з GPS RTK обладнанням та виконуємо точний винос меж із похибкою до 1 см за координатами Держгеокадастру.</p>
+
+    <div style="margin-top:30px;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#EDE8DF; margin-bottom:16px;">Населені пункти де ми працюємо:</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span class="srv-tag" style="margin:0;">Васильків</span>
+        <span class="srv-tag" style="margin:0;">Глеваха</span>
+        <span class="srv-tag" style="margin:0;">Боярка</span>
+        <span class="srv-tag" style="margin:0;">Гатне</span>
+        <span class="srv-tag" style="margin:0;">Чабани</span>
+        <span class="srv-tag" style="margin:0;">Хотів</span>
+        <span class="srv-tag" style="margin:0;">Крушинка</span>
+        <span class="srv-tag" style="margin:0;">Вишнева</span>
+        <span class="srv-tag" style="margin:0;">Калинівка</span>
+        <span class="srv-tag" style="margin:0;">Дмитрівка</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОСЛУГИ В РАЙОНІ -->
+<section id="services">
+  <div class="sec-wrap">
+    <div class="sec-label">Послуги</div>
+    <h2 class="sec-h">Що замовляють <em>у Васильківському</em> районі</h2>
+    <p class="sec-p">Основні послуги які найбільше затребувані у Василькові, котеджних містечках і селах району.</p>
+
+    <div class="services-grid">
+
+      <article class="srv">
+        <div class="srv-tag">НАЙПОПУЛЯРНІШЕ</div>
+        <h4 class="srv-title">Винос меж земельної ділянки</h4>
+        <p class="srv-text">Найчастіше замовлення у Васильківському районі. Геодезист переносить координати з Держземкадастру на місцевість з точністю <b>±1 см</b> та встановлює межові знаки — бетонні стовпчики або металеві штирі. Видаємо офіційний <b>акт виносу меж в натуру</b> з печаткою сертифікованого інженера.</p>
+        <div class="srv-cta"><a href="#form" class="btn-srv">Замовити винос меж</a></div>
+      </article>
+
+      <article class="srv">
+        <div class="srv-tag">ПЕРЕД БУДІВНИЦТВОМ</div>
+        <h4 class="srv-title">Топографічна зйомка</h4>
+        <p class="srv-text">Знімаємо рельєф ділянки, існуючі будівлі, дерева, комунікації. Потрібно для <b>проекту будинку, дозволу на будівництво</b> та підключення до мереж. Масштаби: 1:500, 1:1000, 1:2000. Особливо актуально для ділянок з ухилами у районі Глевахи та Гатного.</p>
+        <div class="srv-cta"><a href="#form" class="btn-srv">Замовити зйомку</a></div>
+      </article>
+
+      <article class="srv">
+        <div class="srv-tag">БЕЗ КАДАСТРОВОГО НОМЕРА</div>
+        <h4 class="srv-title">Присвоєння кадастрового номера</h4>
+        <p class="srv-text">Ділянка є, а кадастрового номера немає — не можна продати, подарувати, взяти кредит. Проводимо <b>кадастрову зйомку</b>, підготовку технічної документації та реєстрацію у Держгеокадастрі. Особливо часто зустрічається у старих дачних масивах Чабан.</p>
+        <div class="srv-cta"><a href="#form" class="btn-srv">Отримати номер</a></div>
+      </article>
+
+      <article class="srv">
+        <div class="srv-tag">ПІСЛЯ СПАДЩИНИ / РОЗЛУЧЕННЯ</div>
+        <h4 class="srv-title">Поділ земельної ділянки</h4>
+        <p class="srv-text">Потрібно розділити ділянку між власниками? Виконуємо юридичний поділ — <b>створюємо окремі кадастрові номери</b> для кожної частки. Підготовка проекту землеустрою щодо поділу та реєстрація в кадастрі.</p>
+        <div class="srv-cta"><a href="#form" class="btn-srv">Замовити поділ</a></div>
+      </article>
+
+      <article class="srv">
+        <div class="srv-tag">ЯКЩО ХОЧЕТЕ БУДУВАТИ</div>
+        <h4 class="srv-title">Зміна цільового призначення</h4>
+        <p class="srv-text">У Васильківському районі багато земель ОСГ та садівницьких товариств. Якщо ви плануєте <b>будівництво житлового будинку</b> — потрібно переводити ділянку в категорію "для будівництва". Готуємо проект землеустрою.</p>
+        <div class="srv-cta"><a href="#form" class="btn-srv">Замовити зміну</a></div>
+      </article>
+
+      <article class="srv">
+        <div class="srv-tag">ПРИ СПОРІ З СУСІДОМ</div>
+        <h4 class="srv-title">Відновлення межових знаків</h4>
+        <p class="srv-text">Сусід пересунув паркан або зник межовий знак? <b>Відновлюємо межові знаки</b> за координатами кадастру. Складаємо акт передачі межових знаків на зберігання — документ з юридичною силою для суду та ОТГ.</p>
+        <div class="srv-cta"><a href="#form" class="btn-srv">Відновити знаки</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ЯК МИ ПРАЦЮЄМО -->
+<section id="process">
+  <div class="sec-wrap">
+    <div class="sec-label">Процес роботи</div>
+    <h2 class="sec-h">Як це <em>відбувається</em></h2>
+    <p class="sec-p">Прозорі етапи від першого дзвінка до офіційного акта на руках.</p>
+
+    <div class="proc-grid">
+      <div class="proc"><div class="proc-num">01</div><div class="proc-title">Заявка</div><div class="proc-desc">Залишаєте заявку на сайті, в Telegram, WhatsApp, Viber або телефонуєте.</div></div>
+      <div class="proc"><div class="proc-num">02</div><div class="proc-title">Узгодження</div><div class="proc-desc">Перевіряємо кадастр вашої ділянки, узгоджуємо вартість і дату виїзду.</div></div>
+      <div class="proc"><div class="proc-num">03</div><div class="proc-title">Виїзд</div><div class="proc-desc">Сертифікований інженер виїжджає у Васильківський район з GPS RTK обладнанням.</div></div>
+      <div class="proc"><div class="proc-num">04</div><div class="proc-title">Виміри</div><div class="proc-desc">Встановлення межових знаків у кутових точках за координатами Держгеокадастру.</div></div>
+      <div class="proc"><div class="proc-num">05</div><div class="proc-title">Договір</div><div class="proc-desc">Підписання офіційного договору на проведені роботи на місці виїзду.</div></div>
+      <div class="proc"><div class="proc-num">06</div><div class="proc-title">Акт</div><div class="proc-desc">Видаємо акт винесення меж з печаткою сертифікованого інженера.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="sec-wrap" style="max-width:780px;">
+    <div class="sec-label">Часті питання</div>
+    <h2 class="sec-h">Запитували — <em>відповідаємо</em></h2>
+    <p class="sec-p">Найпопулярніші запитання клієнтів з Васильківського району.</p>
+
+    <div class="faq-list">
+      <div class="faq" onclick="toggleFaq(this)">
+        <div class="faq-q">Чи виїжджаєте у котеджні містечка та дачні масиви Васильківського району?<div class="faq-q-icon">+</div></div>
+        <div class="faq-a">Так. Виїжджаємо у будь-який населений пункт і дачний масив — Глеваха, Боярка, Гатне, Чабани, Хотів, Крушинка, Вишнева, Калинівка та інші.</div>
+      </div>
+      <div class="faq" onclick="toggleFaq(this)">
+        <div class="faq-q">Скільки коштує винос меж у Василькові?<div class="faq-q-icon">+</div></div>
+        <div class="faq-a">Вартість залежить від кількості кутових точок ділянки та відстані. Залиште заявку — після перевірки кадастру безкоштовно озвучимо точну ціну. Мінімальна вартість для Васильківського району розраховується індивідуально.</div>
+      </div>
+      <div class="faq" onclick="toggleFaq(this)">
+        <div class="faq-q">Чи потрібні документи для замовлення виносу меж у Василькові?<div class="faq-q-icon">+</div></div>
+        <div class="faq-a">Потрібен кадастровий номер ділянки або витяг з Держземкадастру. Якщо документів немає — підкажемо як їх отримати безкоштовно на map.land.gov.ua. Бажано мати свідоцтво про право власності або держакт.</div>
+      </div>
+      <div class="faq" onclick="toggleFaq(this)">
+        <div class="faq-q">Сусід пересунув паркан у Василькові — що робити?<div class="faq-q-icon">+</div></div>
+        <div class="faq-a">Замовляєте винос меж за координатами кадастру. Геодезист встановлює правильні межі та видає акт. З цим актом ви можете вимагати повернути паркан або звернутись до виконкому ОТГ чи суду. Акт має повну юридичну силу.</div>
+      </div>
+      <div class="faq" onclick="toggleFaq(this)">
+        <div class="faq-q">Як швидко можете виїхати до Василькова?<div class="faq-q-icon">+</div></div>
+        <div class="faq-a">У більшості випадків виїжджаємо наступного дня після узгодження деталей. Якщо ситуація критична (наприклад, нотаріус або суд) — намагаємось знайти можливість виїхати в той самий день.</div>
+      </div>
+      <div class="faq" onclick="toggleFaq(this)">
+        <div class="faq-q">Чи має акт виносу меж у Василькові юридичну силу?<div class="faq-q-icon">+</div></div>
+        <div class="faq-a">Так. Акт підписує сертифікований інженер-геодезист і він має повну юридичну силу — для суду, нотаріуса, ОТГ та державних органів. Це офіційний документ згідно ст. 106 Земельного кодексу України.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТИ -->
+<section id="contacts" class="contacts-section">
+  <div class="sec-wrap">
+    <div class="sec-label">Зв'язатись</div>
+    <h2 class="sec-h">Як нас <em>знайти</em></h2>
+    <p class="sec-p">Зв'яжіться зручним способом. Відповідаємо щодня з 9:00 до 21:00.</p>
+
+    <div class="contacts-grid">
+      <a href="tel:+380961210906" class="ch-btn ch-tel" aria-label="Зателефонувати">
+        <div class="ch-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></div>
+        <div class="ch-name">Телефон</div>
+        <div class="ch-val">096 121 09 06</div>
+      </a>
+      <a href="https://t.me/vitaliy_bud" target="_blank" rel="noopener" class="ch-btn ch-tg" aria-label="Написати в Telegram">
+        <div class="ch-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.61c-.15.674-.543.838-1.097.522l-3.02-2.226-1.46 1.4c-.16.16-.296.296-.608.296l.216-3.073 5.594-5.054c.243-.216-.053-.336-.377-.12l-6.916 4.354-2.98-.93c-.648-.203-.66-.648.135-.96l11.636-4.487c.54-.195 1.012.12.917.668z"/></svg></div>
+        <div class="ch-name">Telegram</div>
+        <div class="ch-val">@vitaliy_bud</div>
+      </a>
+      <a href="https://wa.me/380961210906" target="_blank" rel="noopener" class="ch-btn ch-wa" aria-label="Написати в WhatsApp">
+        <div class="ch-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg></div>
+        <div class="ch-name">WhatsApp</div>
+        <div class="ch-val">096 121 09 06</div>
+      </a>
+      <a href="viber://chat?number=%2B380961210906" class="ch-btn ch-vb" aria-label="Написати в Viber">
+        <div class="ch-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .002C5.373.028 0 5.401 0 12.028c0 2.097.547 4.142 1.588 5.945L0 24l6.305-1.654c1.737.95 3.69 1.448 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 12 .002z"/></svg></div>
+        <div class="ch-name">Viber</div>
+        <div class="ch-val">096 121 09 06</div>
+      </a>
+      <a href="mailto:budekspertinfo@gmail.com" class="ch-btn ch-mail" aria-label="Написати на email">
+        <div class="ch-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></div>
+        <div class="ch-name">Email</div>
+        <div class="ch-val">budekspertinfo@gmail.com</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ФОРМА -->
+<section id="form" class="form-section">
+  <div class="form-wrap">
+    <div class="sec-label">Заявка</div>
+    <h2 class="sec-h">Залиште <em>заявку</em></h2>
+    <p class="sec-p">Зв'яжемось протягом 30 хвилин у робочий час.</p>
+
+    <div class="fcard">
+      <div class="form-h">Безкоштовна консультація</div>
+      <div class="form-sub">// Васильків та Васильківський район</div>
+
+      <div id="formBlock">
+        <div class="field">
+          <label for="fservice">Що вас цікавить?</label>
+          <select id="fservice">
+            <option value="">— Оберіть послугу —</option>
+            <optgroup label="Геодезія">
+              <option>Винос меж земельної ділянки</option>
+              <option>Топографічна зйомка</option>
+              <option>Кадастрова зйомка</option>
+              <option>Виконавча зйомка</option>
+              <option>Відновлення межових знаків</option>
+            </optgroup>
+            <optgroup label="Землевпорядкування">
+              <option>Кадастровий номер</option>
+              <option>Поділ ділянки</option>
+              <option>Об'єднання ділянок</option>
+              <option>Зміна цільового призначення</option>
+              <option>Приватизація землі</option>
+              <option>Оформлення права власності</option>
+            </optgroup>
+            <option>Не знаю / потрібна консультація</option>
+          </select>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="fname">Ім'я *</label>
+            <input type="text" id="fname" placeholder="Іван" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="fphone">Телефон *</label>
+            <input type="tel" id="fphone" placeholder="+38 096..." autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fcity">Населений пункт</label>
+          <input type="text" id="fcity" placeholder="Васильків, Глеваха, Боярка..." autocomplete="address-level2">
+        </div>
+
+        <div class="field">
+          <label for="fcadnum">Кадастровий номер <span style="color:var(--muted);font-weight:400;font-size:9px;">(якщо є)</span></label>
+          <input
+            type="text" id="fcadnum"
+            placeholder="3222487400:04:001:0022"
+            maxlength="23" inputmode="numeric" autocomplete="off"
+            oninput="formatCadNum(this)"
+            style="font-family:'JetBrains Mono',monospace; letter-spacing:0.5px;"
+          >
+        </div>
+
+        <div class="field">
+          <label for="fcomment">Коментар</label>
+          <textarea id="fcomment" rows="3" placeholder="Опишіть деталі ситуації"></textarea>
+        </div>
+
+        <button class="btn-submit" onclick="doSubmit()" type="button">
+          Надіслати заявку
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <p class="privacy">Ваші дані захищені. Не передаємо третім особам.</p>
+      </div>
+
+      <div class="success-block" id="successBlock">
+        <div class="success-ico">✓</div>
+        <div class="success-h">Заявку прийнято!</div>
+        <p class="success-p">Дякуємо. Зв'яжемось з вами найближчим часом.</p>
+        <a href="tel:+380961210906" class="btn-gold" style="display:flex; margin-bottom:10px;">📞 Зателефонувати зараз</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-wrap">
+    <div class="foot-block">
+      <div class="foot-logo">Винос<em>Меж</em></div>
+      <div class="foot-desc">Геодезія та землевпорядкування у Василькові та Васильківському районі Київської області.</div>
+    </div>
+    <div class="foot-block">
+      <h4>Послуги</h4>
+      <a href="#services">Винос меж в натуру</a>
+      <a href="#services">Топографічна зйомка</a>
+      <a href="#services">Кадастровий номер</a>
+      <a href="#services">Поділ ділянки</a>
+    </div>
+    <div class="foot-block">
+      <h4>Райони</h4>
+      <a href="/">Київська область</a>
+      <a href="fastiv.html">Фастів</a>
+      <a href="obukhiv.html">Обухів</a>
+      <a href="bila-cerkva.html">Біла Церква</a>
+    </div>
+    <div class="foot-block">
+      <h4>Контакти</h4>
+      <a href="tel:+380961210906">📞 096 121 09 06</a>
+      <a href="https://t.me/vitaliy_bud" target="_blank" rel="noopener">💬 @vitaliy_bud</a>
+      <a href="mailto:budekspertinfo@gmail.com">✉ budekspertinfo@gmail.com</a>
+      <p>📍 Васильків</p>
+      <p>🕒 9:00 – 21:00 щодня</p>
+    </div>
+  </div>
+  <div class="foot-copy">© 2026 ВиносМеж · Васильків та Васильківський район</div>
+</footer>
+
+</div><!-- /.page -->
+
+<!-- STICKY MESSENGERS -->
+<div class="sticky-bar">
+  <a href="tel:+380961210906" class="sb sb-tel" aria-label="Дзвінок">
+    <div class="sb-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></div>
+    Дзвінок
+  </a>
+  <a href="https://t.me/vitaliy_bud" target="_blank" rel="noopener" class="sb sb-tg" aria-label="Telegram">
+    <div class="sb-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.61c-.15.674-.543.838-1.097.522l-3.02-2.226-1.46 1.4c-.16.16-.296.296-.608.296l.216-3.073 5.594-5.054c.243-.216-.053-.336-.377-.12l-6.916 4.354-2.98-.93c-.648-.203-.66-.648.135-.96l11.636-4.487c.54-.195 1.012.12.917.668z"/></svg></div>
+    Telegram
+  </a>
+  <a href="https://wa.me/380961210906" target="_blank" rel="noopener" class="sb sb-wa" aria-label="WhatsApp">
+    <div class="sb-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg></div>
+    WhatsApp
+  </a>
+  <a href="viber://chat?number=%2B380961210906" class="sb sb-vb" aria-label="Viber">
+    <div class="sb-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .002C5.373.028 0 5.401 0 12.028c0 2.097.547 4.142 1.588 5.945L0 24l6.305-1.654c1.737.95 3.69 1.448 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 12 .002z"/></svg></div>
+    Viber
+  </a>
+</div>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>
