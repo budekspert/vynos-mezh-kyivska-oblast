@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Отримати кадастровий номер у Київській області | Винесення Меж</title>
+<meta name="description" content="Присвоєння кадастрового номера земельній ділянці у Київській області. Розробка технічної документації, внесення до ДЗК та отримання Витягу. ☎ 096 121 09 06">
+<meta name="keywords" content="отримати кадастровий номер Київська область, присвоєння кадастрового номера, реєстрація земельної ділянки в ДЗК, витяг з ДЗК, технічна документація із землеустрою, землевпорядні роботи Київська область">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Винесення Меж">
+<link rel="canonical" href="https://vynosmezh.com.ua/kadastrovy-nomer.html">
+<meta name="theme-color" content="#07090F">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Отримати кадастровий номер на земельну ділянку (Київська область)">
+<meta property="og:description" content="Офіційна реєстрація ділянки в Державному земельному кадастрі. Розробка документів під ключ. ☎ 096 121 09 06">
+<meta property="og:url" content="https://vynosmezh.com.ua/kadastrovy-nomer.html">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="Винесення Меж">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Присвоєння кадастрового номера земельній ділянці",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Винесення Меж",
+    "telephone": "+380961210906",
+    "url": "https://vynosmezh.com.ua/"
+  },
+  "description": "Послуги з присвоєння кадастрового номера, внесення відомостей до Державного земельного кадастру (ДЗК) та отримання Витягу з ДЗК.",
+  "areaServed": {"@type": "AdministrativeArea", "name": "Київська область"}
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;0,900;1,700;1,800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+
+<style>
+  .srv-price { display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #D4A843; background: rgba(212,168,67,0.08); border: 1px solid rgba(212,168,67,0.25); border-radius: 6px; padding: 5px 12px; margin: 10px 0 12px; }
+  .srv-price::before { content: '₴'; opacity: 0.6; }
+  .success-block { display: none; text-align: center; padding: 2rem 0; }
+  .success-block.active { display: block; }
+  #formBlock.hidden { display: none; }
+  
+  .service-content { max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text); }
+  .service-content h3 { font-family: 'Syne', sans-serif; font-size: 24px; margin: 40px 0 20px; color: #fff; }
+  .service-content p { margin-bottom: 20px; font-size: 16px; }
+  .service-content ul { margin-bottom: 30px; padding-left: 20px; }
+  .service-content li { margin-bottom: 10px; font-size: 16px; }
+  .stage-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(212,168,67,0.2); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+  .stage-num { font-family: 'JetBrains Mono', monospace; color: #D4A843; font-weight: bold; margin-bottom: 8px; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<canvas id="cvs"></canvas>
+<div class="grain"></div>
+
+<div class="page">
+
+<header>
+  <a class="logo" href="/">
+    <div class="logo-box">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="3" fill="#D4A843"/>
+        <circle cx="10" cy="10" r="7" stroke="#D4A843" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <line x1="10" y1="1" x2="10" y2="4" stroke="#D4A843" stroke-width="2"/>
+        <line x1="10" y1="16" x2="10" y2="19" stroke="#D4A843" stroke-width="2"/>
+        <line x1="1" y1="10" x2="4" y2="10" stroke="#D4A843" stroke-width="2"/>
+        <line x1="16" y1="10" x2="19" y2="10" stroke="#D4A843" stroke-width="2"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-name">Винесення<em>Меж</em></div>
+      <div class="logo-sub">096 121 09 06</div>
+    </div>
+  </a>
+  <div class="hdr-right">
+    <a href="tel:+380961210906" class="hdr-tel-link" aria-label="Зателефонувати"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg> 096 121 09 06</a>
+    <a href="#form" class="hdr-cta">Заявка</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="scan" aria-hidden="true"></div>
+  <div class="crn tl" aria-hidden="true"></div>
+  <div class="crn tr" aria-hidden="true"></div>
+  <div class="crn bl" aria-hidden="true"></div>
+  <div class="crn br" aria-hidden="true"></div>
+  <div class="fcoord" aria-hidden="true">Послуги землевпорядкування</div>
+  <div class="fcoord" aria-hidden="true">Київська область</div>
+
+  <div class="hero-inner">
+    <div class="hero-label">Землевпорядні роботи · Кадастр</div>
+    <h1 data-utm="default">Отримання<br><em>кадастрового номера</em></h1>
+    <p class="hero-desc">Офіційна реєстрація земельної ділянки у Державному земельному кадастрі (ДЗК). Розробка технічної документації та отримання Витягу. Працюємо по всій Київській області.</p>
+    <div class="hero-btns">
+      <a href="#details" class="btn-gold"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg> Етапи робіт</a>
+      <a href="#contacts" class="btn-ghost">📞 Консультація</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">від 7500</div><div class="stat-lbl">Гривень</div></div>
+      <div><div class="stat-num">ДЗК</div><div class="stat-lbl">Офіційна реєстрація</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="details" style="padding: 80px 0;">
+  <div class="sec-wrap">
+    <div class="sec-label">Процедура</div>
+    <h2 class="sec-h">Як отримати <em>кадастровий номер</em></h2>
+    
+    <div class="service-content">
+      <p>Кадастровий номер — це індивідуальний, цифровий та унікальний код земельної ділянки, який не повторюється на всій території України. Без цього номера ділянка юридично не існує у сучасній системі координат держави.</p>
+      
+      <p>Якщо у вас на руках старий державний акт (рожевого чи жовтого кольору), виданий до 2004 року, він залишається дійсним, проте для будь-яких юридичних дій з землею (продаж, дарування, прийняття спадщини, забудова) вам обов'язково необхідно <b>отримати кадастровий номер на земельну ділянку</b> та внести її до бази ДЗК.</p>
+
+      <h3>Професійні етапи присвоєння кадастрового номера:</h3>
+      
+      <div class="stage-box">
+        <div class="stage-num">// ЕТАП 01</div>
+        <h4 style="font-family:'Syne', sans-serif; font-size:20px; color:#fff; margin-bottom:12px;">Кадастрова зйомка ділянки</h4>
+        <p style="margin-bottom:0;">Сертифікований інженер-геодезист виїжджає на об'єкт. За допомогою високоточного GPS RTK обладнання проводиться обмір фактичних меж ділянки для визначення її точних площ та поворотних точок у державній системі координат УСК-2000.</p>
+      </div>
+
+      <div class="stage-box">
+        <div class="stage-num">// ЕТАП 02</div>
+        <h4 style="font-family:'Syne', sans-serif; font-size:20px; color:#fff; margin-bottom:12px;">Розробка технічної документації</h4>
+        <p style="margin-bottom:0;">На основі геодезичних даних інженер-землевпорядник розробляє <b>технічну документацію із землеустрою щодо встановлення (відновлення) меж земельної ділянки в натурі (на місцевості)</b>. Паралельно створюється електронний обмінний файл (XML-файл), який містить усю інформацію про ділянку.</p>
+      </div>
+
+      <div class="stage-box">
+        <div class="stage-num">// ЕТАП 03</div>
+        <h4 style="font-family:'Syne', sans-serif; font-size:20px; color:#fff; margin-bottom:12px;">Реєстрація в ДЗК</h4>
+        <p style="margin-bottom:0;">Документація разом із XML-файлом подається державному кадастровому реєстратору через електронний портал Держгеокадастру. Реєстратор перевіряє дані на відсутність накладок із суміжними ділянками та вносить відомості до бази.</p>
+      </div>
+
+      <div class="stage-box">
+        <div class="stage-num">// ЕТАП 04</div>
+        <h4 style="font-family:'Syne', sans-serif; font-size:20px; color:#fff; margin-bottom:12px;">Отримання Витягу з ДЗК</h4>
+        <p style="margin-bottom:0;">Результатом успішної реєстрації є присвоєння унікального 19-значного коду та видача <b>Витягу з Державного земельного кадастру</b> про земельну ділянку. Саме цей документ підтверджує наявність кадастрового номера і вимагається нотаріусами.</p>
+      </div>
+
+      <h3>Які документи потрібні для старту?</h3>
+      <ul>
+        <li>Державний акт старого зразка або договір оренди/рішення ради.</li>
+        <li>Копія паспорта (всі сторінки з відмітками) та ІПН власника.</li>
+        <li>Довідка з місцевої ради про наявність адреси (за потреби).</li>
+      </ul>
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="#form" class="btn-gold" style="display:inline-flex;">Замовити послугу</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="photos" style="padding: 60px 0;">
+  <div class="sec-wrap">
+    <div class="sec-label">Наша робота</div>
+    <h2 class="sec-h">Геодезія <em>в дії</em></h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:24px;">
+      <div style="border-radius:12px; overflow:hidden; border:1px solid rgba(212,168,67,0.15); aspect-ratio:4/3;">
+        <img src="https://images.unsplash.com/photo-1766830110938-0ea8a6d78ecb?w=800&auto=format&fit=crop&q=80" alt="Польові роботи" loading="lazy" width="800" height="600" style="width:100%; height:100%; object-fit:cover; display:block; filter:brightness(0.9);">
+      </div>
+      <div style="border-radius:12px; overflow:hidden; border:1px solid rgba(212,168,67,0.15); aspect-ratio:4/3;">
+        <img src="https://images.unsplash.com/photo-1628158088936-68ccaaa400dc?w=800&auto=format&fit=crop&q=80" alt="GPS RTK" loading="lazy" width="800" height="600" style="width:100%; height:100%; object-fit:cover; display:block; filter:brightness(0.9);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts" class="contacts-section">
+  <div class="sec-wrap">
+    <div class="sec-label">Зв'язок</div>
+    <h2 class="sec-h">Оберіть <em>зручний</em> спосіб</h2>
+    <div class="contacts-grid">
+      <a href="tel:+380961210906" class="ch-btn ch-tel"><div class="ch-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></div><div class="ch-name">Подзвонити</div><div class="ch-val">096 121 09 06</div></a>
+      <a href="https://t.me/vitaliy_bud" target="_blank" rel="noopener" class="ch-btn ch-tg"><div class="ch-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.61c-.15.674-.543.838-1.097.522l-3.02-2.226-1.46 1.4c-.16.16-.296.296-.608.296l.216-3.073 5.594-5.054c.243-.216-.053-.336-.377-.12l-6.916 4.354-2.98-.93c-.648-.203-.66-.648.135-.96l11.636-4.487c.54-.195 1.012.12.917.668z"/></svg></div><div class="ch-name">Telegram</div><div class="ch-val">@vitaliy_bud</div></a>
+      <a href="https://wa.me/380961210906" target="_blank" rel="noopener" class="ch-btn ch-wa"><div class="ch-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg></div><div class="ch-name">WhatsApp</div><div class="ch-val">096 121 09 06</div></a>
+    </div>
+  </div>
+</section>
+
+<section id="form" class="form-section">
+  <div class="form-wrap">
+    <div class="sec-label">Заявка</div>
+    <h2 class="sec-h">Отримати <em>консультацію</em></h2>
+    <div class="fcard">
+      <div class="form-h">Безкоштовна консультація</div>
+      <div id="formBlock">
+        <div class="field"><label for="fname">Ім'я *</label><input type="text" id="fname" placeholder="Іван" autocomplete="given-name"></div>
+        <div class="field"><label for="fphone">Телефон *</label><input type="tel" id="fphone" placeholder="+38 096..." autocomplete="tel"></div>
+        <div class="field"><label for="fcity">Населений пункт</label><input type="text" id="fcity" placeholder="Наприклад: Васильків" autocomplete="address-level2"></div>
+        <button class="btn-submit" onclick="doSubmit()" type="button">Надіслати заявку</button>
+      </div>
+      <div class="success-block" id="successBlock"><div class="success-ico">✓</div><div class="success-h">Заявку прийнято!</div><p class="success-p">Ми зв'яжемося з вами найближчим часом для уточнення деталей.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer style="padding: 40px 0; background: #07090F; border-top: 1px solid rgba(212,168,67,0.15); margin-top: 40px;">
+  <div class="sec-wrap" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; font-size: 13px; color: var(--muted);">
+    <div style="min-width: 150px;">
+      <h4 style="color:#D4A843; margin-bottom: 15px; font-size:14px; font-family:'Syne', sans-serif;">Навігація</h4>
+      <a href="/" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Головна сторінка</a>
+      <a href="vasylkiv.html" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Васильків</a>
+      <a href="fastiv.html" style="display:block; color:inherit; text-decoration:none;">Фастів</a>
+    </div>
+  </div>
+</footer>
+
+</div> <script>
+  function doSubmit() {
+    const name = document.getElementById('fname').value;
+    const phone = document.getElementById('fphone').value;
+    if (!name || !phone) return alert("Будь ласка, заповніть Ім'я та Телефон.");
+    document.getElementById('formBlock').classList.add('hidden');
+    document.getElementById('successBlock').classList.add('active');
+  }
+</script>
+</body>
+</html>
