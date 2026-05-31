@@ -1,37 +1,26 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<header>
+  <a href="/" class="logo">
+    <div class="logo-box">
+      <!-- Твоя SVG іконка логотипу (якщо вона тут була) -->
+    </div>
+    <div>
+      <div class="logo-name">Винесення<em>Меж</em></div>
+      <div class="logo-sub">Васильківський район</div>
+    </div>
+  </a>
+  <div class="hdr-right">
+    <a href="tel:+380961210906" class="hdr-tel-link" aria-label="Зателефонувати">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+      </svg> 
+      096 121 09 06
+    </a>
+    <a href="#contacts" class="hdr-cta">Заявка</a>
+  </div>
+</header>
 
-<title>Винесення Меж Васильків — геодезія та землевпорядні роботи у Васильківському районі</title>
-<meta name="description" content="Винесення меж земельної ділянки в натуру, топозйомка, поділ ділянки у Василькові та районі. Глеваха, Боярка, Гатне, Чабани. ☎ 096 121 09 06">
-<meta name="keywords" content="винесення меж Васильків, винос меж Васильків, топографічна зйомка Васильків, кадастровий номер Васильківський район, Глеваха, Боярка, Гатне, Чабани, Хотів, Крушинка, геодезія Васильків">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Винесення Меж">
-<link rel="canonical" href="https://vynosmezh.com.ua/vasylkiv.html">
-<meta name="theme-color" content="#07090F">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Винесення Меж Васильків — геодезія у Васильківському районі">
-<meta property="og:description" content="Винесення меж земельної ділянки в натуру, топозйомка, кадастр. Сертифіковані інженери з GPS RTK у Василькові. ☎ 096 121 09 06">
-<meta property="og:url" content="https://vynosmezh.com.ua/vasylkiv.html">
-<meta property="og:locale" content="uk_UA">
-<meta property="og:site_name" content="Винесення Меж">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;0,900;1,700;1,800&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css">
-
-<style>
-  .srv-price { display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #D4A843; background: rgba(212,168,67,0.08); border: 1px solid rgba(212,168,67,0.25); border-radius: 6px; padding: 5px 12px; margin: 10px 0 12px; }
-  .srv-price::before { content: '₴'; opacity: 0.6; }
-  .success-block { display: none; text-align: center; padding: 2rem 0; }
-  .success-block.active { display: block; }
-  #formBlock.hidden { display: none; }
-</style>
-</head>
 <body>
 
 <canvas id="cvs"></canvas>
@@ -149,7 +138,25 @@
   </div>
 </section>
 
-<script src="main.js"></script>
+<footer style="padding: 40px 0; background: #07090F; border-top: 1px solid rgba(212,168,67,0.15); margin-top: 40px;">
+  <div class="sec-wrap" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; font-size: 13px; color: var(--muted);">
+    <div style="min-width: 150px;">
+      <h4 style="color:#D4A843; margin-bottom: 15px; font-size:14px; font-family:'Syne', sans-serif;">Навігація</h4>
+      <a href="/" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Головна сторінка</a>
+      <a href="fastiv.html" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Фастів</a>
+      <a href="obukhiv.html" style="display:block; color:inherit; text-decoration:none;">Обухів</a>
+    </div>
+  </div>
+</footer>
 
+</div> <script>
+  function doSubmit() {
+    const name = document.getElementById('fname').value;
+    const phone = document.getElementById('fphone').value;
+    if (!name || !phone) return alert("Будь ласка, заповніть Ім'я та Телефон.");
+    document.getElementById('formBlock').classList.add('hidden');
+    document.getElementById('successBlock').classList.add('active');
+  }
+</script>
 </body>
 </html>
