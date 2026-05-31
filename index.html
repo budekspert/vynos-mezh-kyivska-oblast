@@ -378,72 +378,7 @@
   </div>
 </section>
 
-<footer style="padding: 40px 0; background: #07090F; border-top: 1px solid rgba(212,168,67,0.15); margin-top: 40px;">
-  <div class="sec-wrap" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; font-size: 13px; color: var(--muted);">
-    <div style="min-width: 150px;">
-      <h4 style="color:#D4A843; margin-bottom: 15px; font-size:14px; font-family:'Syne', sans-serif;">Райони</h4>
-      <a href="vasylkiv.html" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Васильків</a>
-      <a href="fastiv.html" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Фастів</a>
-      <a href="obukhiv.html" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Обухів</a>
-      <a href="bila-cerkva.html" style="display:block; color:inherit; text-decoration:none;">Біла Церква</a>
-    </div>
-    <div style="min-width: 150px;">
-      <h4 style="color:#D4A843; margin-bottom: 15px; font-size:14px; font-family:'Syne', sans-serif;">Послуги</h4>
-      <a href="podil-dilyanky.html" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Поділ ділянок</a>
-      <a href="topohrafiya.html" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Топозйомка М 1:500</a>
-      <a href="kadastrovy-nomer.html" style="display:block; color:inherit; text-decoration:none;">Кадастровий номер</a>
-    </div>
-    <div style="min-width: 150px;">
-      <h4 style="color:#D4A843; margin-bottom: 15px; font-size:14px; font-family:'Syne', sans-serif;">Статті</h4>
-      <a href="statti/susid-porushyv-mezhu.html" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Сусід порушив межу</a>
-      <a href="statti/vartist-vynosu-mezh.html" style="display:block; color:inherit; text-decoration:none; margin-bottom:8px;">Вартість винесення меж</a>
-      <a href="statti/dokumenty-vynos-mezh.html" style="display:block; color:inherit; text-decoration:none;">Документи для робіт</a>
-    </div>
-    <div style="min-width: 150px;">
-      <h4 style="color:#D4A843; margin-bottom: 15px; font-size:14px; font-family:'Syne', sans-serif;">Контакти</h4>
-      <span style="display:block; margin-bottom:8px;">096 121 09 06</span>
-      <span style="display:block; margin-bottom:8px;">budekspertinfo@gmail.com</span>
-      <span style="display:block;">Київська область</span>
-    </div>
-  </div>
-  <div class="sec-wrap" style="text-align: center; margin-top: 30px; font-size: 11px; opacity: 0.5;">
-    © 2026 Винесення Меж. Усі права захищено.
-  </div>
-</footer>
-
-</div> <script>
-  function toggleFaq(element) {
-    element.classList.toggle('active');
-    const answer = element.querySelector('.faq-a');
-    if (element.classList.contains('active')) {
-      answer.style.display = 'block';
-    } else {
-      answer.style.display = 'none';
-    }
-  }
-
-  function formatCadNum(input) {
-    let value = input.value.replace(/\D/g, '');
-    let formatted = value;
-    if(value.length > 10) formatted = value.slice(0, 10) + ':' + value.slice(10);
-    if(value.length > 12) formatted = formatted.slice(0, 13) + ':' + formatted.slice(13);
-    if(value.length > 15) formatted = formatted.slice(0, 17) + ':' + formatted.slice(17);
-    input.value = formatted;
-  }
-
-  function doSubmit() {
-    const name = document.getElementById('fname').value;
-    const phone = document.getElementById('fphone').value;
-    
-    if (!name || !phone) {
-      alert("Будь ласка, заповніть обов'язкові поля: Ім'я та Телефон.");
-      return;
-    }
-    
-    document.getElementById('formBlock').classList.add('hidden');
-    document.getElementById('successBlock').classList.add('active');
-  }
-</script>
+<script src="main.js"></script>
 
 </body>
 </html>
