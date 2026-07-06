@@ -1,229 +1,270 @@
-/**
- * ═══════════════════════════════════════════════════════════════════════════
- * БУДЕКСПЕРТ — УНІВЕРСАЛЬНИЙ МОНОЛІТНИЙ РОЗУМНИЙ СКРИПТ ВЕБ-ЗАСТОСУНКУ
- * ═══════════════════════════════════════════════════════════════════════════
- * Регіон: Київська область (Васильків, Фастів, Обухів, Біла Церква)
- * Дизайн: Оригінальний преміальний Dark-Gold (Насичені яскраві кольори)
- * Автоматизація: Самоналаштування під покращену форму та автоформат кадастру
- * ═══════════════════════════════════════════════════════════════════════════
- */
+/* ════════════════════════════════════════
+   ВИНОС МЕЖ — JavaScript (виправлено, Команда-1)
+   ─────────────────────────────────────────
+   [К-1] Виправлено синтаксичну помилку CAD_PARTS
+   [К-1] Видалено мертвий/невикористовуваний код (модальні вікна)
+   [К-1] Додано canvas-анімацію, doSubmit(), formatCadNum(), toggleFaq()
+         відповідно до реальної розмітки всіх сторінок сайту
+   [К-2] Пауза canvas на прихованій вкладці
+   [К-2] Debounce resize → менше перерахунків
+   [К-3] Адаптивна щільність частинок для мобільних
+════════════════════════════════════════ */
 
-document.addEventListener('DOMContentLoaded', () => {
-  'use strict';
+/* ═══ CANVAS — частинки на фоні ═══ */
+(function () {
+  var c = document.getElementById('cvs');
+  if (!c) return;
+  var ctx = c.getContext('2d');
+  var W, H, pts = [];
+  var animId = null;
+  var paused = false;
 
-  // 1. ОРИГІНАЛЬНА НАЧИСЕНА ПАЛІТРА КОЛЬОРІВ БУДЕКСПЕРТ
-  const BRAND_COLORS = {
-    bg: '#07090F',       // Насичений глибокий темний
-    bg2: '#0B0F1A',      // Фон вікна та карток
-    gold: '#D4A843',     // Ярке фірмове золото
-    gold2: '#F0C96A',    // Світле золото (ховер)
-    text: '#EDE8DF',     // Контрастний чіткий текст
-    border: 'rgba(212, 168, 67, 0.35)'
-  };
+  function getParticleDensity() {
+    return window.innerWidth < 768 ? 32000 : 22000;
+  }
 
-  // 2. ІН'ЄКЦІЯ CSS СТИЛІВ ПОПАПУ (ПОВНЕ ПОВЕРНЕННЯ ОРИГІНАЛУ, ЖОДНОГО СИНЬО-БІЛОГО)
-  const injectStyles = () => {
-    const styleTag = document.createElement('style');
-    styleTag.textContent = `
-      .be-modal-overlay {
-        position: fixed; inset: 0; z-index: 10000;
-        background: rgba(7, 9, 15, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-        display: flex; align-items: center; justify-content: center; padding: 20px;
-        opacity: 0; animation: beFadeIn 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-      }
-      .be-modal-window {
-        background: ${BRAND_COLORS.bg2}; border: 2px solid ${BRAND_COLORS.gold};
-        border-radius: 16px; width: 100%; max-width: 850px; max-height: 85vh;
-        display: flex; flex-direction: column; position: relative;
-        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 168, 67, 0.1);
-        transform: scale(0.9); animation: beScaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-      }
-      .be-modal-close {
-        position: absolute; top: 15px; right: 20px; background: none; border: none;
-        color: ${BRAND_COLORS.gold}; font-size: 38px; font-weight: 400; cursor: pointer; z-index: 10100;
-        line-height: 1; transition: color 0.2s ease, transform 0.2s ease;
-      }
-      .be-modal-close:hover { color: ${BRAND_COLORS.gold2}; transform: scale(1.15); }
-      .be-modal-body {
-        padding: 50px 40px; overflow-y: auto; color: ${BRAND_COLORS.text} !important; font-size: 16px; line-height: 1.8;
-      }
-      .be-modal-body h1, .be-modal-body h2, .be-modal-body h3 {
-        color: ${BRAND_COLORS.gold} !important; margin-bottom: 22px; font-family: 'Playfair Display', serif; font-weight: 700;
-      }
-      .be-modal-body p { margin-bottom: 18px; color: ${BRAND_COLORS.text} !important; }
-      
-      /* Кнопка лінку на форму в кінці кожної статті */
-      .be-modal-form-btn {
-        display: inline-flex; align-items: center; justify-content: center; margin-top: 25px;
-        background: linear-gradient(135deg, ${BRAND_COLORS.gold}, ${BRAND_COLORS.gold2});
-        color: ${BRAND_COLORS.bg} !important; font-weight: 800; text-transform: uppercase;
-        letter-spacing: 1px; padding: 16px 32px; border-radius: 8px; border: none;
-        cursor: pointer; text-decoration: none; width: 100%; transition: transform 0.2s;
-      }
-      .be-modal-form-btn:hover { transform: translateY(-2px); }
+  function resize() {
+    W = c.width = window.innerWidth;
+    H = c.height = window.innerHeight;
+  }
 
-      /* ПРИМУСОВЕ ВИДАЛЕННЯ ДЕФОЛТНИХ СТИЛІВ БРАУЗЕРА ДЛЯ СЕЛЕКТІВ ТА ПОЛІВ ВСЕРЕДИНІ ПОПАПУ */
-      .be-modal-body input, .be-modal-body select, .be-modal-body textarea {
-        background-color: ${BRAND_COLORS.bg} !important; color: ${BRAND_COLORS.text} !important;
-        border: 1px solid ${BRAND_COLORS.gold} !important;
-      }
-      select option { background-color: ${BRAND_COLORS.bg} !important; color: ${BRAND_COLORS.text} !important; }
+  function init() {
+    pts = [];
+    var n = Math.max(20, Math.floor((W * H) / getParticleDensity()));
+    if (window.innerWidth < 768) n = Math.min(n, 30);
+    for (var i = 0; i < n; i++) {
+      pts.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.2,
+        r: Math.random() * 1.2 + 0.4,
+        a: Math.random() * 0.5 + 0.2
+      });
+    }
+  }
 
-      .be-modal-body::-webkit-scrollbar { width: 6px; }
-      .be-modal-body::-webkit-scrollbar-track { background: ${BRAND_COLORS.bg}; }
-      .be-modal-body::-webkit-scrollbar-thumb { background: ${BRAND_COLORS.gold}; border-radius: 3px; }
-      
-      .be-toast {
-        position: fixed; bottom: 30px; right: 30px; z-index: 11000; padding: 18px 30px;
-        border-radius: 8px; font-size: 15px; font-weight: 700; color: ${BRAND_COLORS.bg};
-        display: flex; align-items: center; max-width: 400px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-        transform: translateY(50px); opacity: 0; animation: beSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-      }
-      .be-toast.success { background: linear-gradient(135deg, ${BRAND_COLORS.gold}, ${BRAND_COLORS.gold2}); border: 1px solid #8A6820; }
-      .be-toast.error { background: #E74C3C; color: #FFFFFF; border: 1px solid #C0392B; }
-      
-      @keyframes beFadeIn { to { opacity: 1; } }
-      @keyframes beScaleIn { to { opacity: 1; transform: scale(1); } }
-      @keyframes beSlideUp { to { opacity: 1; transform: translateY(0); } }
-      .be-modal-overlay.be-closing, .be-toast.be-closing { opacity: 0; transition: opacity 0.3s ease; }
-    `;
-    document.head.appendChild(styleTag);
-  };
+  function getConnectionDist() {
+    return window.innerWidth < 768 ? 80 : 120;
+  }
 
-  // 3. СИСТЕМНІ ТОСТ-СПОВІЩЕННЯ
-  const showNotification = (text, isSuccess = true, duration = 4000) => {
-    const toast = document.createElement('div');
-    toast.className = `be-toast ${isSuccess ? 'success' : 'error'}`;
-    toast.innerText = text;
-    document.body.appendChild(toast);
-    setTimeout(() => {
-      toast.classList.add('be-closing');
-      setTimeout(() => toast.remove(), 300);
-    }, duration);
-  };
+  function frame() {
+    if (paused) return;
+    animId = requestAnimationFrame(frame);
 
-  // 4. ДИНАМІЧНЕ МОДАЛЬНЕ ВІКНО СТАТТІ
-  const openModal = (htmlContent) => {
-    const currentModal = document.getElementById('articleModal');
-    if (currentModal) currentModal.remove();
+    ctx.fillStyle = '#07090F';
+    ctx.fillRect(0, 0, W, H);
 
-    const modalOverlay = document.createElement('div');
-    modalOverlay.id = 'articleModal';
-    modalOverlay.className = 'be-modal-overlay';
-    
-    modalOverlay.innerHTML = `
-      <div class="be-modal-window">
-        <button class="be-modal-close" aria-label="Закрити сторінку">&times;</button>
-        <div class="be-modal-body">
-          ${htmlContent}
-          <button class="be-modal-form-btn">Залишити заявку інженеру</button>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modalOverlay);
-    document.body.style.overflow = 'hidden';
-
-    const closeModal = () => {
-      modalOverlay.classList.add('be-closing');
-      setTimeout(() => {
-        modalOverlay.remove();
-        document.body.style.overflow = '';
-      }, 300);
-    };
-
-    modalOverlay.querySelector('.be-modal-close').addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
-
-    // РОЗУМНИЙ СКРОЛ ДО ФОРМИ
-    modalOverlay.querySelector('.be-modal-form-btn').addEventListener('click', () => {
-      closeModal();
-      setTimeout(() => {
-        const form = document.querySelector('form');
-        if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 350);
-    });
-  };
-
-  // 5. ІДЕАЛЬНИЙ АВТОФОРМАТ КАДАСТРОВОГО НОМЕРА СХЕМОЮ CLAUDE (10:2:3:4)
-  const initCadastralMask = () => {
-    const CAD_PARTS =;
-    const cadInput = document.getElementById('fcadnum') || 
-                     document.querySelector('input[id*="cadastral"]') || 
-                     document.querySelector('input[name*="cadastral"]') ||
-                     document.querySelector('input[placeholder*="кадастр"]');
-    if (!cadInput) return;
-
-    cadInput.addEventListener('input', (e) => {
-      let digits = e.target.value.replace(/\D/g, '');
-      if (digits.length > 19) digits = digits.slice(0, 19);
-      
-      let result = '';
-      let pos = 0;
-      for (let i = 0; i < CAD_PARTS.length; i++) {
-        let chunk = digits.slice(pos, pos + CAD_PARTS[i]);
-        if (!chunk) break;
-        result += (i > 0 ? ':' : '') + chunk;
-        pos += CAD_PARTS[i];
-      }
-      e.target.value = result;
-    });
-  };
-
-  // 6. РОЗУМНИЙ ОБРОБНИК ФОРМИ (ЗАЯВКИ ПРИХОДЯТЬ НА EMAIL БЕЗ REFRESH СТОРІНКИ)
-  const initFormHandler = () => {
-    const targetForm = document.querySelector('form');
-    if (!targetForm) return;
-
-    if (!targetForm.getAttribute('action')) {
-      targetForm.setAttribute('action', 'https://web3forms.com');
+    ctx.strokeStyle = 'rgba(212,168,67,0.04)';
+    ctx.lineWidth = 1;
+    for (var x = 0; x < W; x += 60) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (var y = 0; y < H; y += 60) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
     }
 
-    targetForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      const submitButton = targetForm.querySelector('button[type="submit"]') || targetForm.querySelector('.btn-submit');
-      const originalButtonContent = submitButton ? submitButton.innerHTML : 'Надіслати заявку';
-
-      if (submitButton) {
-        submitButton.innerText = 'Обробка заявки...';
-        submitButton.disabled = true;
-      }
-
-      try {
-        const formData = new FormData(targetForm);
-        
-        // Гарантуємо наявність потрібних ключів для Web3Forms
-        if (!formData.has('access_key')) {
-          formData.append('access_key', '7a7c94a8-8935-4659-88d0-1e900cb9460b');
-        }
-        if (!formData.has('email')) {
-          formData.append('email', 'no-reply@budekspert.com'); 
-        }
-
-        const response = await fetch(targetForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        const resultData = await response.json();
-
-        if (response.ok && resultData.success) {
-          showNotification('Заявку успішно відправлено! Наш інженер зв\'яжеться з вами найближчим часом.', true);
-          targetForm.reset();
-        } else {
-          showNotification('Помилка Web3Forms. Перевірте Access Key.', false);
-        }
-      } catch (error) {
-        showNotification('Помилка з\'єднання. Перевірте доступ до інтернету.', false);
-      } finally {
-        if (submitButton) {
-          submitButton.innerHTML = originalButtonContent;
-          submitButton.disabled = false;
+    var dist = getConnectionDist();
+    for (var i = 0; i < pts.length; i++) {
+      for (var j = i + 1; j < pts.length; j++) {
+        var dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if (d < dist) {
+          ctx.strokeStyle = 'rgba(212,168,67,' + ((1 - d / dist) * 0.10) + ')';
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x, pts[i].y);
+          ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.stroke();
         }
       }
+    }
+
+    pts.forEach(function (p) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(212,168,67,' + p.a + ')';
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
     });
+  }
+
+  function startAnim() {
+    if (!paused && !animId) animId = requestAnimationFrame(frame);
+  }
+
+  function stopAnim() {
+    if (animId) { cancelAnimationFrame(animId); animId = null; }
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { paused = true; stopAnim(); }
+    else { paused = false; startAnim(); }
+  });
+
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { resize(); init(); }, 200);
+  });
+
+  resize();
+  init();
+  frame();
+})();
+
+/* ═══ UTM city — безпечно, з білим списком ═══ */
+document.addEventListener('DOMContentLoaded', function () {
+  var ALLOWED_CITIES = {
+    'kyiv': 'Києві',
+    'kyivska': 'Київській області',
+    'vasylkiv': 'Василькові',
+    'bila-cerkva': 'Білій Церкві',
+    'fastiv': 'Фастові',
+    'obukhiv': 'Обухові'
   };
 
+  var urlParams = new URLSearchParams(window.location.search);
+  var cityParam = urlParams.get('utm_city');
 
-       
+  if (cityParam && ALLOWED_CITIES[cityParam.toLowerCase()]) {
+    var cityName = ALLOWED_CITIES[cityParam.toLowerCase()];
+    var h1 = document.querySelector('h1[data-utm]');
+    if (h1) {
+      h1.innerHTML = 'Винесення меж<br><em>земельної ділянки</em><br>в ' + cityName;
+    }
+    document.title = 'Винесення меж в ' + cityName + ' | ВиносМеж';
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc) {
+      desc.setAttribute(
+        'content',
+        'Винесення меж земельної ділянки в ' + cityName +
+        '. Сертифіковані інженери з GPS RTK. Офіційний акт. ☎ 096 121 09 06'
+      );
+    }
+  }
+});
+
+/* ═══ FAQ — розгортання ═══ */
+function toggleFaq(el) {
+  el.classList.toggle('open');
+}
+
+/* ═══ Кадастровий номер — автоформат 10:2:3:4 ═══ */
+var CAD_PARTS = [10, 2, 3, 4];
+function formatCadNum(input) {
+  var digits = input.value.replace(/\D/g, '');
+  if (digits.length > 19) digits = digits.slice(0, 19);
+  var result = '';
+  var pos = 0;
+  for (var i = 0; i < CAD_PARTS.length; i++) {
+    var chunk = digits.slice(pos, pos + CAD_PARTS[i]);
+    if (!chunk) break;
+    result += (i > 0 ? ':' : '') + chunk;
+    pos += CAD_PARTS[i];
+  }
+  input.value = result;
+}
+
+/* ═══ Inline-помилки валідації ═══ */
+function showFieldError(fieldId, msg) {
+  clearFieldError(fieldId);
+  var field = document.getElementById(fieldId);
+  if (!field) return;
+  field.style.borderColor = 'rgba(235,87,87,0.7)';
+  field.style.boxShadow = '0 0 0 3px rgba(235,87,87,0.12)';
+  var err = document.createElement('div');
+  err.className = 'field-error';
+  err.id = fieldId + '-error';
+  err.setAttribute('role', 'alert');
+  err.textContent = msg;
+  err.style.cssText = [
+    "font-family:'JetBrains Mono',monospace",
+    'font-size:10px',
+    'color:rgba(235,87,87,0.9)',
+    'margin-top:5px',
+    'letter-spacing:0.3px'
+  ].join(';');
+  field.parentNode.appendChild(err);
+  field.focus();
+}
+
+function clearFieldError(fieldId) {
+  var field = document.getElementById(fieldId);
+  if (field) { field.style.borderColor = ''; field.style.boxShadow = ''; }
+  var errEl = document.getElementById(fieldId + '-error');
+  if (errEl) errEl.remove();
+}
+
+function clearAllErrors() {
+  ['fname', 'fphone', 'fcadnum'].forEach(clearFieldError);
+}
+
+/* ═══ Submit форми (Web3Forms) ═══ */
+function doSubmit() {
+  clearAllErrors();
+
+  var nameEl = document.getElementById('fname');
+  var phoneEl = document.getElementById('fphone');
+  var serviceEl = document.getElementById('fservice');
+  var cityEl = document.getElementById('fcity');
+  var cadEl = document.getElementById('fcadnum');
+  var commentEl = document.getElementById('fcomment');
+
+  var name = nameEl ? nameEl.value.trim() : '';
+  var phone = phoneEl ? phoneEl.value.trim() : '';
+  var service = serviceEl ? serviceEl.value.trim() : '';
+  var city = cityEl ? cityEl.value.trim() : '';
+  var cad = cadEl ? cadEl.value.trim() : '';
+  var comment = commentEl ? commentEl.value.trim() : '';
+
+  var hasErrors = false;
+
+  if (!name) {
+    showFieldError('fname', "⚠ Вкажіть ваше ім'я");
+    hasErrors = true;
+  }
+  if (!phone) {
+    showFieldError('fphone', '⚠ Вкажіть номер телефону');
+    hasErrors = true;
+  } else if (phone.replace(/\D/g, '').length < 10) {
+    showFieldError('fphone', '⚠ Перевірте номер телефону');
+    hasErrors = true;
+  }
+  if (cad && cad.replace(/\D/g, '').length !== 19) {
+    showFieldError('fcadnum', '⚠ Кадастровий номер — 19 цифр: 1234567890:12:345:6789');
+    hasErrors = true;
+  }
+
+  if (hasErrors) return;
+
+  var formData = {
+    access_key: '7a7c94a8-8935-4659-88d0-1e900cb9460b',
+    subject: 'Нова заявка з сайту ВиносМеж',
+    from_name: 'ВиносМеж (vynosmezh.com.ua)',
+    name: name,
+    phone: phone,
+    service: service || 'не вибрано',
+    city: city || 'не вказано',
+    cadastral: cad || 'не вказано',
+    message: comment || 'без коментаря',
+    page: window.location.pathname || '/'
+  };
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { console.log('Web3Forms:', d); })
+    .catch(function (e) { console.log('Web3Forms error:', e); });
+
+  var formBlock = document.getElementById('formBlock');
+  var successBlock = document.getElementById('successBlock');
+  if (formBlock) formBlock.style.display = 'none';
+  if (successBlock) {
+    successBlock.style.display = 'block';
+    successBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
